@@ -27,7 +27,7 @@ The experiment is divided into three main stages:
 3.  **Algorithm Execution**: Finally, we run the Pandora's Box inspired Adaptive Best-of-N algorithm on the scored responses to evaluate its performance under different conditions.
 
 ## Dataset
-During stages 1 and 2, we generate 960 different responses for each of 100 prompts sampled from the RLHF-HH and AlpacaFarm datasets. We then evaluate these responses using 5 different reward models. All generations and their corresponding rewards are stored in the `datasets/` folder.
+During stages 1 and 2, we generate 960 different responses for each of 100 prompts sampled from the HH-RLHF and AlpacaFarm datasets. We then evaluate these responses using 5 different reward models. All generations and their corresponding rewards are stored in the `datasets/` folder.
 
 ## Setup and Installation
 
