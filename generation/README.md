@@ -20,10 +20,10 @@ python generation/generate_responses.py --llm [LLM_NAME] --gpu_index [GPU_INDEX]
 ### Example
 
 ```bash
-python generation/generate_responses.py --llm llama3.1_8b --gpu_index 0 --sample_count 100 --input_file dataset/alpaca_farm_100.json
+python generation/generate_responses.py --llm llama3.1_8b --gpu_index 0 --sample_count 960 --input_file dataset/alpaca_farm_100.json
 ```
 
-This command will generate 100 responses for each prompt in the `alpaca_farm_100.json` dataset using the `llama3.1_8b` model on GPU 0. The output will be saved to a file named `llama3.1_8b_output.jsonl`.
+This command will generate 960 responses for each prompt in the `alpaca_farm_100.json` dataset using the `llama3.1_8b` model on GPU 0. The output will be saved to a file named `llama3.1_8b_output.jsonl`.
 
 ## 2. Computing Rewards
 
@@ -47,3 +47,25 @@ python generation/compute_rewards.py . armo_rm rewarded_output --gpu_index 0
 ```
 
 This command will use the `armo_rm` reward model to score the responses in all `.jsonl` files in the current directory and save the results to the `rewarded_output` directory.
+
+## 3. Model Details
+
+### Generation Models
+
+| Keyword | Hugging Face Model Path |
+| --- | --- |
+| `llama3.2_3b` | `meta-llama/Llama-3.2-3B-Instruct` |
+| `llama3.1_8b` | `meta-llama/Llama-3.1-8B-Instruct` |
+| `qwen3_4b` | `Qwen/Qwen3-4B-Instruct-2507` |
+| `qwen2.5_7b` | `Qwen/Qwen2.5-7B-Instruct` |
+| `mistral_7b` | `mistralai/Mistral-7B-Instruct-v0.3` |
+| `gemma2_9b` | `google/gemma-2-9b-it` |
+
+### Reward Models
+
+| Keyword | Hugging Face Model Path |
+| --- | --- |
+| `armo_rm` | `RLHFlow/ArmoRM-Llama3-8B-v0.1` |
+| `fsfairx_rm` | `sfairXC/FsfairX-LLaMA3-RM-v0.1` |
+| `mistral_rm` | `weqweasdas/RM-Mistral-7B` |
+| `skywork_rm` | `Skywork/Skywork-Reward-Llama-3.1-8B` |
