@@ -26,7 +26,7 @@ def read_data(input_folder, llm_name, rm_name):
     Returns:
         list: A list of dictionaries, where each dictionary represents a line in the JSONL file.
     """
-    file_name = f"{input_folder}/{llm_name}_output.{rm_name}.jsonl"
+    file_name = f"{input_folder}/{llm_name}_output.merged_rm.jsonl"
     lines = []
     with open(file_name, "r") as f:
         lines = f.readlines()
