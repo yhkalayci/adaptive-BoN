@@ -269,7 +269,7 @@ def pandoras_box(data, cost, delta, min_open_count=20, divide=5):
 
         open_count += 1
     return {
-        "dist_name": "LogNormal",
+        "dist_name": "Exponential",
         "exp_score": max_until["exp_value"],
         "open_count": open_count,
         "score": max_until["value"],
