@@ -269,7 +269,7 @@ def pandoras_box(data, target_wr, delta, min_open_count=20, divide=3):
         ucb_factor = 1 + np.power( np.log(n) * np.log(1/delta) / n , 1/2)
         lcb_factor = 1 - np.power( np.log(n) * np.log(1/delta) / n , 1/2)
         mean = max(mean, 0.0001)
-        ucb_mean = mean * factor
+        ucb_mean = mean * ucb_factor
         lcb_mean = mean * lcb_factor
         estimated_max = median + np.log(N/divide) * ucb_mean
         c2 = target_wr #hybrid_fast_solver(median, 1/mean, cost, estimated_max)
