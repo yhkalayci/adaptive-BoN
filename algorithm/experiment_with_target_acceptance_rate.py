@@ -265,11 +265,13 @@ def pandoras_box(data, target_wr, delta, min_open_count=20, divide=3):
         mean = estimator.exceedance_mean - median
 
         n = open_count
-        factor = 1 + np.power( np.log(np.log(n)) * np.log(1/delta) / n , 1/2)
-        # factor = 1 + np.power( np.log(n) * np.log(1/delta) / n , 1/2)
+        # factor = 1 + np.power( np.log(np.log(n)) * np.log(1/delta) / n , 1/2)
+        ucb_factor = 1 + np.power( np.log(n) * np.log(1/delta) / n , 1/2)
+        lcb_factor = 1 - np.power( np.log(n) * np.log(1/delta) / n , 1/2)
         mean = max(mean, 0.0001)
-        mean *= factor
-        estimated_max = global_opt["exp_value"]
+        ucb_mean = mean * factor
+        lcb_mean = mean * lcb_factor
+        estimated_max = median + np.log(N/divide) * ucb_mean
         c2 = target_wr #hybrid_fast_solver(median, 1/mean, cost, estimated_max)
         
         v = max_until["exp_value"]
