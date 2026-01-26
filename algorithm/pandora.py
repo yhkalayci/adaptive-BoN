@@ -199,6 +199,129 @@ def compute_adaptive_results(permutations, costs, delta, alpha,
     return adaptive
 
 
+def pandoras_box_target_wr(data, target_wr, delta, min_open_count=10, alpha=0.99,
+                           distribution="shifted_exponential", transformation="bradley_terry",
+                           batch_size=1):
+    """
+    Run Pandora's Box algorithm with a target win-rate threshold.
+
+    Args:
+        data: array of reward values
+        target_wr: target win-rate threshold in transformed space
+        delta: confidence parameter
+        min_open_count: minimum samples before stopping
+        alpha: quantile for benchmark (used in BT benchmark estimation)
+        distribution: "shifted_exponential" or "lognormal"
+        transformation: "bradley_terry" or "cdf"
+        batch_size: number of boxes to open per step
+
+    Returns:
+        dict with results including win_rate, open_count, utility, etc.
+    """
+    n_total = data.shape[0]
+    max_until = {
+        "value": -10,
+        "exp_value": 0,
+        "generator": 0,
+        "index": 0,
+    }
+
+    observed_rewards = []
+    observed_exp_rewards = []
+
+    min_open_count = min(min_open_count, n_total)
+    open_count = min_open_count
+    for i in range(min_open_count):
+        observed_rewards.append(data[i])
+        observed_exp_rewards.append(np.exp(data[i]))
+        if data[i] > max_until["value"]:
+            max_until["value"] = data[i]
+            max_until["index"] = i
+            max_until["exp_value"] = np.exp(data[i])
+
+    global_quantile = alpha_quantile(data, alpha) if n_total else -np.inf
+    global_opt = {
+        "value": global_quantile,
+        "exp_value": float(np.exp(global_quantile)) if n_total else 0.0,
+        "generator": 0,
+    }
+
+    final_estimated_max = None
+
+    while open_count < n_total:
+        n = open_count
+        v = max_until["exp_value"]
+        rewards_arr = np.array(observed_rewards)
+        exp_rewards_arr = np.array(observed_exp_rewards)
+
+        if distribution == "shifted_exponential":
+            dist_params = fit_shifted_exponential(exp_rewards_arr, n, delta)
+            loc = dist_params["loc"]
+            scale = dist_params["scale"]
+            scale_ucb = dist_params["scale_ucb"]
+            scale_lcb = dist_params["scale_lcb"]
+
+            estimated_max = loc + (-scale * np.log(1 - alpha))
+            final_estimated_max = estimated_max
+
+            if transformation == "bradley_terry":
+                v_transformed = transform_bradley_terry(v, estimated_max)
+            else:
+                v_transformed = transform_cdf_shifted_exp(v, loc, scale)
+
+        else:
+            dist_params = fit_lognormal(rewards_arr, n, delta)
+            mu = dist_params["mu"]
+            mu_ucb = dist_params["mu_ucb"]
+            mu_lcb = dist_params["mu_lcb"]
+            sigma = dist_params["sigma"]
+            sigma_ucb = dist_params["sigma_ucb"]
+            sigma_lcb = dist_params["sigma_lcb"]
+
+            estimated_max = np.exp(mu_ucb + sigma * norm.ppf(alpha))
+            final_estimated_max = estimated_max
+
+            if transformation == "bradley_terry":
+                v_transformed = transform_bradley_terry(v, estimated_max)
+            else:
+                v_transformed = transform_cdf_lognormal(v, mu_ucb, sigma)
+
+        # print(v_transformed, target_wr, estimated_max, np.exp(global_opt["value"]))
+
+        if v_transformed > target_wr:
+            break
+
+        next_end = min(open_count + batch_size, n_total)
+        for i in range(open_count, next_end):
+            next_val = data[i]
+            observed_rewards.append(next_val)
+            observed_exp_rewards.append(np.exp(next_val))
+            if next_val > max_until["value"]:
+                max_until["value"] = next_val
+                max_until["index"] = i
+                max_until["exp_value"] = np.exp(next_val)
+        open_count = next_end
+
+    win_rate = acceptance_rate(max_until["value"], global_opt["value"])
+    dist_name = "LogNormal" if distribution == "lognormal" else "Exponential"
+
+    return {
+        "dist_name": dist_name,
+        "transformation": transformation,
+        "exp_score": max_until["exp_value"],
+        "open_count": open_count,
+        "score": max_until["value"],
+        "opt": global_opt["value"],
+        "exp_opt": global_opt["exp_value"],
+        "win_rate": win_rate,
+        "acceptance_rate": win_rate,
+        "max_until": max_until,
+        "global_opt": global_opt,
+        "target_wr": target_wr,
+        "final_estimation": final_estimated_max / global_opt["exp_value"] if final_estimated_max else None,
+    }
+
+
 def compute_fixed_n_results(permutations, costs, global_quantile):
     n_total = permutations[0].shape[0]
     results_by_cost = []

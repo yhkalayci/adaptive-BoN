@@ -55,8 +55,8 @@ def alpha_quantile(values, alpha):
     n_total = values.shape[0]
     alpha = min(max(alpha, 1e-6), 1 - 1e-12)
     sorted_data = np.sort(values)
-    quantile_index = int(alpha * n_total) + 1
-    quantile_index = min(max(quantile_index - 1, 0), n_total - 1)
+    quantile_index = int(alpha * n_total)
+    quantile_index = min(max(quantile_index, 0), n_total - 1)
     return float(sorted_data[quantile_index])
 
 
