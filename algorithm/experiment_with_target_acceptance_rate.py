@@ -159,10 +159,12 @@ def _process_prompt(args):
         fixed_n_target = result["fixed_n_target"]
         sample_count = result["sample_mean"]
         if fixed_n_actual and not np.isnan(fixed_n_actual):
-            result["save_actual"] = float((sample_count - fixed_n_actual) / fixed_n_actual)
-            result["save_target"] = float((sample_count - fixed_n_target) / fixed_n_actual)
+            result["save_actual"] = float((fixed_n_actual - sample_count) / fixed_n_actual)
         else:
             result["save_actual"] = np.nan
+        if fixed_n_target and not np.isnan(fixed_n_target):
+            result["save_target"] = float((fixed_n_target - sample_count) / fixed_n_target)
+        else:
             result["save_target"] = np.nan
 
     return {"prompt_index": prompt_index, "per_prompt_entry": per_prompt_entry}
@@ -204,7 +206,7 @@ def run(args):
     ]
 
     per_prompt = [None] * prompt_count
-    with ProcessPoolExecutor(max_workers=8) as executor:
+    with ProcessPoolExecutor(max_workers=32) as executor:
         futures = [executor.submit(_process_prompt, worker_arg) for worker_arg in worker_args]
         for future in tqdm.tqdm(as_completed(futures), total=len(futures), desc="Prompts"):
             result = future.result()
@@ -218,6 +220,14 @@ def run(args):
         )
         sample_means = np.array(
             [prompt["results"][wr_index]["sample_mean"] for prompt in per_prompt],
+            dtype=float,
+        )
+        fixed_n_actual = np.array(
+            [prompt["results"][wr_index]["fixed_n_actual"] for prompt in per_prompt],
+            dtype=float,
+        )
+        fixed_n_target = np.array(
+            [prompt["results"][wr_index]["fixed_n_target"] for prompt in per_prompt],
             dtype=float,
         )
         save_actual = np.array(
@@ -237,6 +247,12 @@ def run(args):
                 "sample_mean_median": float(np.nanmedian(sample_means)),
                 "sample_mean_p25": float(np.nanpercentile(sample_means, 25)),
                 "sample_mean_p75": float(np.nanpercentile(sample_means, 75)),
+                "fixed_n_actual_median": float(np.nanmedian(fixed_n_actual)),
+                "fixed_n_actual_p25": float(np.nanpercentile(fixed_n_actual, 25)),
+                "fixed_n_actual_p75": float(np.nanpercentile(fixed_n_actual, 75)),
+                "fixed_n_target_median": float(np.nanmedian(fixed_n_target)),
+                "fixed_n_target_p25": float(np.nanpercentile(fixed_n_target, 25)),
+                "fixed_n_target_p75": float(np.nanpercentile(fixed_n_target, 75)),
                 "save_actual_median": float(np.nanmedian(save_actual)),
                 "save_actual_p25": float(np.nanpercentile(save_actual, 25)),
                 "save_actual_p75": float(np.nanpercentile(save_actual, 75)),
@@ -303,7 +319,7 @@ def main():
     parser.add_argument(
         "--epoch",
         type=int,
-        default=10,
+        default=100,
         help="Number of permutations to evaluate.",
     )
     parser.add_argument(
