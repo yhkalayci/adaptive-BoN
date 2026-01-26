@@ -38,6 +38,15 @@ def _non_adaptive_win_rates(permutations, benchmark_val, alpha):
     return win_rates
 
 
+def _min_n_for_rate(win_rates, target_rate):
+    if np.isnan(target_rate):
+        return np.nan
+    for entry in win_rates:
+        if entry["mean"] >= target_rate:
+            return entry["sample_count"]
+    return win_rates[-1]["sample_count"] if win_rates else np.nan
+
+
 def single_prompt_analysis(
     prompt,
     epoch,
@@ -113,7 +122,7 @@ def _process_prompt(args):
     ) = args
 
     prompt_rng = np.random.default_rng(int(seed))
-    _, adaptive = single_prompt_analysis(
+    win_rates, adaptive = single_prompt_analysis(
         prompt,
         epoch=epoch,
         target_wrs=target_wrs,
@@ -134,10 +143,27 @@ def _process_prompt(args):
                 "target_acceptance_rate": float(item["target_wr"]),
                 "achieved_acceptance_rate_mean": float(item["mean"]),
                 "sample_mean": float(item["sample_count"]),
+                "fixed_n_actual": float(
+                    _min_n_for_rate(win_rates, float(item["mean"]))
+                ),
+                "fixed_n_target": float(
+                    _min_n_for_rate(win_rates, float(item["target_wr"]))
+                ),
             }
             for item in adaptive
         ],
     }
+
+    for result in per_prompt_entry["results"]:
+        fixed_n_actual = result["fixed_n_actual"]
+        fixed_n_target = result["fixed_n_target"]
+        sample_count = result["sample_mean"]
+        if fixed_n_actual and not np.isnan(fixed_n_actual):
+            result["save_actual"] = float((sample_count - fixed_n_actual) / fixed_n_actual)
+            result["save_target"] = float((sample_count - fixed_n_target) / fixed_n_actual)
+        else:
+            result["save_actual"] = np.nan
+            result["save_target"] = np.nan
 
     return {"prompt_index": prompt_index, "per_prompt_entry": per_prompt_entry}
 
@@ -194,6 +220,14 @@ def run(args):
             [prompt["results"][wr_index]["sample_mean"] for prompt in per_prompt],
             dtype=float,
         )
+        save_actual = np.array(
+            [prompt["results"][wr_index]["save_actual"] for prompt in per_prompt],
+            dtype=float,
+        )
+        save_target = np.array(
+            [prompt["results"][wr_index]["save_target"] for prompt in per_prompt],
+            dtype=float,
+        )
         aggregate.append(
             {
                 "target_acceptance_rate": float(wr),
@@ -203,6 +237,12 @@ def run(args):
                 "sample_mean_median": float(np.nanmedian(sample_means)),
                 "sample_mean_p25": float(np.nanpercentile(sample_means, 25)),
                 "sample_mean_p75": float(np.nanpercentile(sample_means, 75)),
+                "save_actual_median": float(np.nanmedian(save_actual)),
+                "save_actual_p25": float(np.nanpercentile(save_actual, 25)),
+                "save_actual_p75": float(np.nanpercentile(save_actual, 75)),
+                "save_target_median": float(np.nanmedian(save_target)),
+                "save_target_p25": float(np.nanpercentile(save_target, 25)),
+                "save_target_p75": float(np.nanpercentile(save_target, 75)),
                 "prompt_count": int(np.sum(~np.isnan(achieved))),
             }
         )
