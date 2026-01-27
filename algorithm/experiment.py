@@ -80,7 +80,12 @@ def _process_prompt(args):
         transformation=transformation,
         batch_size=batch_size,
     )
-    fixed_n_results, fixed_n_best = compute_fixed_n_results(permutations, costs, global_opt["value"])
+    fixed_n_results, fixed_n_best = compute_fixed_n_results(
+        permutations,
+        costs,
+        global_opt["value"],
+        batch_size=batch_size,
+    )
 
     per_prompt_entry = _build_prompt_entry(prompt_index, costs, pandora_results, fixed_n_results)
 
@@ -168,7 +173,7 @@ def run(args):
     print(f"  Distribution: {args.distribution}")
     print(f"  Transformation: {args.transformation}")
     print(f"  Batch size: {args.batch_size}")
-    print("  Workers: 8")
+    print("  Workers: 32")
 
     prompt_seeds = rng.integers(0, np.iinfo(np.int64).max, size=len(data), dtype=np.int64)
     worker_args = [
@@ -189,7 +194,7 @@ def run(args):
     ]
 
     results = []
-    with ProcessPoolExecutor(max_workers=8) as executor:
+    with ProcessPoolExecutor(max_workers=32) as executor:
         futures = [executor.submit(_process_prompt, args) for args in worker_args]
         for future in tqdm(as_completed(futures), total=len(futures), desc="Prompts"):
             results.append(future.result())

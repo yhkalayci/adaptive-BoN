@@ -42,8 +42,11 @@ def pandoras_box(data, cost, delta, min_open_count=10, alpha=0.99,
     observed_exp_rewards = []
 
     min_open_count = min(min_open_count, n_total)
-    open_count = min_open_count
-    for i in range(min_open_count):
+    if batch_size > 1:
+        open_count = min(n_total, ((min_open_count + batch_size - 1) // batch_size) * batch_size)
+    else:
+        open_count = min_open_count
+    for i in range(open_count):
         observed_rewards.append(data[i])
         observed_exp_rewards.append(np.exp(data[i]))
         if data[i] > max_until["value"]:
@@ -230,8 +233,11 @@ def pandoras_box_target_wr(data, target_wr, delta, min_open_count=10, alpha=0.99
     observed_exp_rewards = []
 
     min_open_count = min(min_open_count, n_total)
-    open_count = min_open_count
-    for i in range(min_open_count):
+    if batch_size > 1:
+        open_count = min(n_total, ((min_open_count + batch_size - 1) // batch_size) * batch_size)
+    else:
+        open_count = min_open_count
+    for i in range(open_count):
         observed_rewards.append(data[i])
         observed_exp_rewards.append(np.exp(data[i]))
         if data[i] > max_until["value"]:
@@ -322,13 +328,19 @@ def pandoras_box_target_wr(data, target_wr, delta, min_open_count=10, alpha=0.99
     }
 
 
-def compute_fixed_n_results(permutations, costs, global_quantile):
+def compute_fixed_n_results(permutations, costs, global_quantile, batch_size=1):
     n_total = permutations[0].shape[0]
     results_by_cost = []
     best_by_cost = []
+    if batch_size > 1:
+        n_values = list(range(batch_size, n_total + 1, batch_size))
+        if not n_values:
+            n_values = [n_total]
+    else:
+        n_values = list(range(1, n_total + 1))
     for cost in costs:
         results = []
-        for n in range(1, n_total + 1):
+        for n in n_values:
             acceptance_rates = []
             utilities = []
             for perm in permutations:
