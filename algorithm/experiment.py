@@ -13,12 +13,16 @@ from pandora import (
     compute_adaptive_results,
     compute_beacon_results,
     compute_fixed_n_results,
+    compute_patience_results,
 )
 
+PATIENCE_STEPS = 5
 
-def _build_prompt_entry(prompt_index, costs, pandora_results, fixed_n_results):
+
+def _build_prompt_entry(prompt_index, costs, pandora_results, fixed_n_results, patience_results):
     pandora_entries = []
     fixed_n_entries = []
+    patience_entries = []
     for cost_index, cost in enumerate(costs):
         pandora_entries.append(
             {
@@ -35,11 +39,20 @@ def _build_prompt_entry(prompt_index, costs, pandora_results, fixed_n_results):
                 ],
             }
         )
+        patience_entries.append(
+            {
+                "cost": cost,
+                "mean_utility": float(patience_results[cost_index]["mean_utility"]),
+                "median_utility": float(patience_results[cost_index]["median_utility"]),
+                "sample_count": int(patience_results[cost_index]["sample_count"]),
+            }
+        )
 
     return {
         "prompt_index": prompt_index,
         "pandora": pandora_entries,
         "fixed_n": fixed_n_entries,
+        "patience": patience_entries,
     }
 
 
@@ -86,8 +99,20 @@ def _process_prompt(args):
         global_opt["value"],
         batch_size=batch_size,
     )
+    patience_results = compute_patience_results(
+        permutations,
+        costs,
+        global_opt["value"],
+        patience=PATIENCE_STEPS,
+    )
 
-    per_prompt_entry = _build_prompt_entry(prompt_index, costs, pandora_results, fixed_n_results)
+    per_prompt_entry = _build_prompt_entry(
+        prompt_index,
+        costs,
+        pandora_results,
+        fixed_n_results,
+        patience_results,
+    )
 
     ratios = []
     for cost_index in range(len(costs)):
@@ -220,6 +245,7 @@ def run(args):
         "epoch": args.epoch,
         "alpha": args.alpha,
         "delta": args.delta,
+        "patience_k": PATIENCE_STEPS,
         "costs": costs,
         "per_prompt": per_prompt_entries,
     }

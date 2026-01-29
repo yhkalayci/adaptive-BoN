@@ -364,6 +364,59 @@ def compute_fixed_n_results(permutations, costs, global_quantile, batch_size=1):
     return results_by_cost, best_by_cost
 
 
+def _run_patience(permutation, patience=5):
+    n_total = permutation.shape[0]
+    if n_total == 0:
+        return float("-inf"), 0
+
+    best = permutation[0]
+    open_count = 1
+    no_improve = 0
+
+    for i in range(1, n_total):
+        reward = permutation[i]
+        open_count += 1
+        if reward > best:
+            best = reward
+            no_improve = 0
+        else:
+            no_improve += 1
+            if no_improve >= patience:
+                break
+
+    return float(best), int(open_count)
+
+
+def compute_patience_results(permutations, costs, global_quantile, patience=5):
+    results = []
+    for cost in costs:
+        outs = []
+        for perm in permutations:
+            best_reward, open_count = _run_patience(perm, patience=patience)
+            win_rate = acceptance_rate(best_reward, global_quantile)
+            utility = win_rate - cost * open_count
+            outs.append(
+                {
+                    "win_rate": float(win_rate),
+                    "open_count": int(open_count),
+                    "best_reward": float(best_reward),
+                    "acceptance_rate": float(win_rate),
+                    "utility": float(utility),
+                }
+            )
+        result = {
+            "cost": cost,
+            "mean": float(np.mean([x["win_rate"] for x in outs])),
+            "median": float(np.median([x["win_rate"] for x in outs])),
+            "mean_utility": float(np.mean([x["utility"] for x in outs])),
+            "median_utility": float(np.median([x["utility"] for x in outs])),
+            "sample_count": int(np.mean([x["open_count"] for x in outs])),
+            "outs": outs,
+        }
+        results.append(result)
+    return results
+
+
 def _reward_generator(rewards):
     for reward in rewards:
         yield "", reward
