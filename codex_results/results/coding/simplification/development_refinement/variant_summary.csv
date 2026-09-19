@@ -1,0 +1,13 @@
+variant,description,mean_relative_utility_gain_pct,mean_utility_delta_vs_reference,positive_divisor_means,divisors,mean_accuracy,mean_chars
+global_exp_07x_running_cost,global exponential tail and one 0.7 reservation multiplier,4.53502124128004,-0.002643687121598639,10,10,0.30738095238095237,13950.594494047618
+global_exp_085x_running_cost,global exponential tail and one 0.85 reservation multiplier,4.339085999471507,-0.0029902686075680275,10,10,0.3104166666666667,15520.523333333334
+global_exp_115x_running_cost,global exponential tail and one 1.15 reservation multiplier,3.7428699736304774,-0.004292837136125283,10,10,0.3152380952380952,18327.104315476194
+global_exp_14x_running_cost,global exponential tail and one 1.4 reservation multiplier,2.887223506695127,-0.0062349629798516635,9,10,0.31788690476190473,20426.60255952381
+global_exp_equal,one global exponential-tail configuration and D_res = D,4.473088337240908,-0.0025547783241213146,10,10,0.31339285714285714,16726.43101190476
+global_exp_equal_conf04,global exponential tail with confidence scale 0.4,4.693452769693696,-0.002185111583876606,10,10,0.30770833333333336,13916.374821428573
+global_exp_equal_conf06,global exponential tail with confidence scale 0.6,4.497235581589565,-0.002577958351521164,10,10,0.3106845238095238,15463.355208333334
+global_exp_equal_conf10,global exponential tail with confidence scale 1.0,3.7172553641495405,-0.004360700571263228,10,10,0.31547619047619047,18454.98119047619
+global_exp_equal_q75_conf08,global 75-percent exponential tail with confidence scale 0.8,4.976902924131065,-0.001670669811744142,10,10,0.30464285714285716,12225.363690476192
+global_exp_equal_running_cost,"global exponential tail, D_res = D, and prefix-mean character cost",4.142468479831925,-0.00335939599159108,10,10,0.3132142857142857,16974.458541666667
+global_exp_piecewise,one global exponential-tail configuration with retained reservation bins,5.070388082564085,-0.001267044043367347,10,10,0.312202380952381,16671.82851190476
+reference_profiled,retained per-divisor profiled policy,5.674853686554953,0.0,10,10,0.30827380952380956,15235.296220238093

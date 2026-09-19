@@ -1,0 +1,7 @@
+variant,description,mean_relative_utility_gain_pct,mean_utility_delta_vs_reference,positive_divisor_means,divisors,mean_accuracy,mean_chars
+global_exp_equal_q75_conf08,global 75-percent exponential tail with confidence scale 0.8,4.976902924131065,-0.001670669811744142,10,10,0.30464285714285716,12225.363690476192
+global_exp_q75_conf08_07x,global 75-percent exponential tail with D_res = 0.7 D,4.974335476812018,-0.001947463792044596,10,10,0.299672619047619,10040.87568452381
+global_exp_q75_conf08_085x,global 75-percent exponential tail with D_res = 0.85 D,5.111734522946006,-0.001454305605513038,10,10,0.3026190476190477,11183.280297619047
+global_exp_q75_conf08_115x,global 75-percent exponential tail with D_res = 1.15 D,4.96984457645292,-0.001529639948625283,10,10,0.30687499999999995,13185.32943452381
+global_exp_q75_conf08_14x,global 75-percent exponential tail with D_res = 1.4 D,4.913667357748693,-0.0015129701547146632,10,10,0.31008928571428573,14654.446547619047
+reference_profiled,retained per-divisor profiled policy,5.674853686554953,0.0,10,10,0.30827380952380956,15235.296220238093

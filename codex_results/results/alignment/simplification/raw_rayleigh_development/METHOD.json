@@ -1,0 +1,108 @@
+{
+  "purpose": "stepwise alignment-policy simplification without final-split selection",
+  "split_start": 19,
+  "splits": 3,
+  "train_permutations": 2,
+  "test_permutations": 4,
+  "seed": 20260802,
+  "variants": [
+    {
+      "name": "reference_train_scale",
+      "description": "retained exponentiated-tail UCB with five training pseudo-observations",
+      "config": {
+        "model": "exp_tail_exponentiated",
+        "confidence_scale": 0.4,
+        "reward_prior_strength": 5.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 3,
+      "uses_training_scale": true
+    },
+    {
+      "name": "local_exp_open5_conf06",
+      "description": "local tail with stronger scale confidence inflation",
+      "config": {
+        "model": "exp_tail_exponentiated",
+        "confidence_scale": 0.6,
+        "reward_prior_strength": 0.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 5,
+      "uses_training_scale": false
+    },
+    {
+      "name": "local_rayleigh_open5_conf00",
+      "description": "fit a shifted Rayleigh upper tail directly to raw rewards",
+      "config": {
+        "model": "rayleigh_tail_raw",
+        "confidence_scale": 0.0,
+        "reward_prior_strength": 0.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 5,
+      "uses_training_scale": false
+    },
+    {
+      "name": "local_rayleigh_open5_conf02",
+      "description": "fit a shifted Rayleigh upper tail directly to raw rewards",
+      "config": {
+        "model": "rayleigh_tail_raw",
+        "confidence_scale": 0.2,
+        "reward_prior_strength": 0.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 5,
+      "uses_training_scale": false
+    },
+    {
+      "name": "local_rayleigh_open5_conf04",
+      "description": "fit a shifted Rayleigh upper tail directly to raw rewards",
+      "config": {
+        "model": "rayleigh_tail_raw",
+        "confidence_scale": 0.4,
+        "reward_prior_strength": 0.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 5,
+      "uses_training_scale": false
+    },
+    {
+      "name": "local_rayleigh_open5_conf06",
+      "description": "fit a shifted Rayleigh upper tail directly to raw rewards",
+      "config": {
+        "model": "rayleigh_tail_raw",
+        "confidence_scale": 0.6,
+        "reward_prior_strength": 0.0,
+        "cost_prior_strength": 0.0,
+        "threshold_quantile": 0.5,
+        "delta": 0.05,
+        "benchmark_calibration": 0.0,
+        "ei_bonus_scale": 0.002
+      },
+      "min_open": 5,
+      "uses_training_scale": false
+    }
+  ],
+  "shared_streams": "identical prompt splits and response permutations",
+  "training_free_contract": "all non-reference variants have zero reward/cost prior weights and zero benchmark-calibration weight; the placeholder prior cannot affect a stopping decision"
+}

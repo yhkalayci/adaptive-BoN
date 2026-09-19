@@ -1,0 +1,135 @@
+{
+  "purpose": "coding utility simplification without final-split selection",
+  "split_start": 63,
+  "splits": 5,
+  "test_permutations": 16,
+  "seed": 20260802,
+  "reference_selection": "codex_results/coding_utility_improvement/results/frontier_validation/frozen_selection.csv",
+  "variants": [
+    {
+      "name": "global_exp_piecewise",
+      "description": "one global exponential-tail configuration with retained reservation bins",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 10.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "retained_piecewise"
+    },
+    {
+      "name": "global_exp_equal",
+      "description": "one global exponential-tail configuration and D_res = D",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 10.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_equal_running_cost",
+      "description": "global exponential tail, D_res = D, and prefix-mean character cost",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_07x_running_cost",
+      "description": "global exponential tail and one 0.7 reservation multiplier",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "0.7x"
+    },
+    {
+      "name": "global_exp_085x_running_cost",
+      "description": "global exponential tail and one 0.85 reservation multiplier",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "0.85x"
+    },
+    {
+      "name": "global_exp_115x_running_cost",
+      "description": "global exponential tail and one 1.15 reservation multiplier",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "1.15x"
+    },
+    {
+      "name": "global_exp_14x_running_cost",
+      "description": "global exponential tail and one 1.4 reservation multiplier",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "1.4x"
+    },
+    {
+      "name": "global_exp_equal_conf04",
+      "description": "global exponential tail with confidence scale 0.4",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.4,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_equal_conf06",
+      "description": "global exponential tail with confidence scale 0.6",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.6,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_equal_conf10",
+      "description": "global exponential tail with confidence scale 1.0",
+      "family": "shifted_exponential",
+      "confidence_scale": 1.0,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_equal_q75_conf08",
+      "description": "global 75-percent exponential tail with confidence scale 0.8",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.75,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    }
+  ],
+  "global_prior_semantics": "reward_prior_strength=Infinity uses exactly the train-fitted global distribution; no local reward-tail estimate is formed",
+  "shared_streams": "identical split and test permutations for every variant",
+  "cost": "exact cumulative characters actually opened",
+  "fixed_n_guard": false
+}

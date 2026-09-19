@@ -1,0 +1,47 @@
+{
+  "purpose": "coding utility simplification without final-split selection",
+  "split_start": 75,
+  "splits": 10,
+  "test_permutations": 48,
+  "seed": 20260802,
+  "reference_selection": "codex_results/coding_utility_improvement/results/frontier_validation/frozen_selection.csv",
+  "variants": [
+    {
+      "name": "global_exp_equal_q75_conf08",
+      "description": "global 75-percent exponential tail with confidence scale 0.8",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "tail_quantile": 0.75,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    },
+    {
+      "name": "global_exp_piecewise",
+      "description": "one global exponential-tail configuration with retained reservation bins",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 10.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "retained_piecewise"
+    },
+    {
+      "name": "global_exp_equal",
+      "description": "one global exponential-tail configuration and D_res = D",
+      "family": "shifted_exponential",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 10.0,
+      "tail_quantile": 0.5,
+      "tail_decay": 1.0,
+      "reservation_rule": "equal"
+    }
+  ],
+  "global_prior_semantics": "reward_prior_strength=Infinity uses exactly the train-fitted global distribution; no local reward-tail estimate is formed",
+  "shared_streams": "identical split and test permutations for every variant",
+  "cost": "exact cumulative characters actually opened",
+  "fixed_n_guard": false
+}

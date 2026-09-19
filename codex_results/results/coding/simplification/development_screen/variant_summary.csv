@@ -1,0 +1,14 @@
+variant,description,mean_relative_utility_gain_pct,mean_utility_delta_vs_reference,positive_divisor_means,divisors,mean_accuracy,mean_chars
+global_exp_07x_running_cost,global exponential tail and one 0.7 reservation multiplier,-3.2809535156690033,-0.0013268842651643989,0,10,0.32271825396825393,16561.186904761904
+global_exp_14x_running_cost,global exponential tail and one 1.4 reservation multiplier,-3.9821272733942146,-0.0026859634680492564,0,10,0.3390873015873016,24920.10982142857
+global_exp_equal,one global exponential-tail configuration and D_res = D,-3.3847861620170994,-0.0010379228347820613,1,10,0.33075396825396824,20264.91904761905
+global_exp_equal_conf02,global exponential tail with weaker confidence inflation,-4.783585569687571,-0.005876241135597759,0,10,0.31646825396825395,16005.916468253967
+global_exp_equal_decay05,global exponential tail with square-root opportunity decay,-24.969921931557522,-0.06451516469553098,0,10,0.3549603174603174,61850.770535714284
+global_exp_equal_no_decay,global exponential tail without opportunity decay,-102.32060717980599,-0.2420238718214601,0,10,0.3864087301587301,136684.21408730157
+global_exp_equal_no_ucb,global exponential-tail plug-in rule without confidence inflation,-5.050543418161718,-0.007315778229324135,1,10,0.31160714285714286,14451.843353174603
+global_exp_equal_q75,global 75-percent exponential tail with D_res = D,-4.214375188682006,-0.004682342076089695,2,10,0.31369047619047624,14213.840277777777
+global_exp_equal_running_cost,"global exponential tail, D_res = D, and prefix-mean character cost",-3.4682321346990164,-0.0014773720336514241,0,10,0.3306547619047619,20379.472718253965
+global_exp_piecewise,one global exponential-tail configuration with retained reservation bins,-3.0522155338826944,-0.0003245562771636435,1,10,0.3285714285714286,20303.219841269845
+global_gaussian_equal,one global truncated Gaussian rule with D_res = D,-6.475479484053139,-0.010479418754330436,0,10,0.34345238095238095,30886.315972222226
+local_exp_equal,train-calibrated but otherwise prefix-local exponential-tail rule,-18.055323229342783,-0.04931355831758629,0,10,0.25525793650793654,7379.837698412698
+reference_profiled,retained per-divisor profiled policy,-2.571040333933325,0.0,2,10,0.32450396825396827,19109.79771825397

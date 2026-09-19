@@ -1,0 +1,38 @@
+{
+  "purpose": "isolated coding utility improvement search",
+  "retained_code": "/scratch1/kalayci/adaptive-BoN/codex_results/code/coding_scripts/coding_ucb_three_objectives.py",
+  "grids": [
+    "exp_tail_current",
+    "exp_tail_uncapped_decay"
+  ],
+  "grid_sizes": {
+    "exp_tail_current": 252,
+    "exp_tail_uncapped_decay": 144
+  },
+  "reward_space": "outer-train-only isotonic P(correct | raw reward)",
+  "distribution": "conditional shifted-exponential upper tail only",
+  "distribution_support": "shifted exponential truncated to [0, 1]",
+  "selection": "cross-fitted train utility",
+  "profile": null,
+  "profile_weight": 0.9,
+  "profile_risk_penalty_standard_deviations": 0.0,
+  "splits": 5,
+  "split_start": 60,
+  "train_permutations": 4,
+  "test_permutations": 4,
+  "folds": 4,
+  "workers": 8,
+  "divisors": [
+    100000.0,
+    200000.0,
+    300000.0,
+    400000.0,
+    500000.0,
+    600000.0,
+    700000.0,
+    800000.0,
+    900000.0,
+    1000000.0
+  ],
+  "diagnostic_all_configs": true
+}

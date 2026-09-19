@@ -1,0 +1,27 @@
+{
+  "algorithm": "UCB Pandora reservation stopping only",
+  "generators": [
+    "gemma2_9b",
+    "llama3.1_8b",
+    "llama3.2_3b",
+    "mistral_7b",
+    "qwen2.5_7b"
+  ],
+  "reward_key": "mistral_rm_reward",
+  "configuration": {
+    "model": "shifted exponential tail on exponentiated reward",
+    "confidence_scale": 0.4,
+    "ei_bonus_scale": 0.002,
+    "reward_prior_strength": 5.0,
+    "threshold_quantile": 0.5,
+    "min_open_count": 3
+  },
+  "splits": 10,
+  "split_start": 30,
+  "train_permutations_per_prompt": 4,
+  "test_permutations_per_prompt": 8,
+  "train_test": "50/50 prompts",
+  "head_to_head": "independent draws; adjacent fixed-N mixture exactly matches held-out expected characters; ties=0.5",
+  "target_quality": "training-selected mixture of adjacent UCB-Pandora divisors and adjacent fixed N; primary saving exactly quality-matched descriptively on heldout",
+  "cost": "exact cumulative output characters"
+}

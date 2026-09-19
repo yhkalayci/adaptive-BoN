@@ -1,0 +1,88 @@
+{
+  "algorithm": "one deterministic uncapped UCB-Pandora target policy",
+  "reward_space": "train-only isotonic P(correct | raw reward)",
+  "distribution_models": [
+    "one global conditional shifted-exponential upper-quarter tail"
+  ],
+  "target_selection": "minimum frozen development-profile geometric-mean characters whose development accuracy reaches the unshifted requested target",
+  "selection_metric": "observed_accuracy",
+  "target_margin": 0.0,
+  "target_lcb": null,
+  "policy_uses_fixed_n": false,
+  "policy_is_mixture": false,
+  "cap_factor": null,
+  "terminal_horizon": "absolute 512-generation dataset boundary only",
+  "fixed_n_baseline_1": "minimum-character integer N reaching requested accuracy on train; same N evaluated on test",
+  "fixed_n_baseline_2": "held-out oracle minimum-character non-adaptive rule on the average final-test Fixed-N curve; it uses one common integer N or a pre-generation mixture of two common N values whose aggregate accuracy exactly equals aggregate adaptive held-out accuracy",
+  "fixed_n_baseline_2_splitwise_diagnostic": "minimum-cost pre-generation mixture of at most two fixed N values matching adaptive accuracy separately on each test split whenever that accuracy lies in the uniform Fixed-N attainable range",
+  "cost": "exact cumulative generation-output characters",
+  "candidate_configs": [
+    {
+      "family": "shifted_exponential",
+      "calibration": "bounded_identity",
+      "confidence_scale": 0.8,
+      "reward_prior_strength": Infinity,
+      "cost_prior_strength": 0.0,
+      "cap_factor": null,
+      "tail_quantile": 0.75,
+      "tail_decay": 1.0
+    }
+  ],
+  "simple_global_policy": true,
+  "divisors": [
+    25000.0,
+    35000.0,
+    50000.0,
+    70000.0,
+    100000.0,
+    140000.0,
+    200000.0,
+    280000.0,
+    400000.0,
+    560000.0,
+    700000.0,
+    1000000.0,
+    1400000.0,
+    2000000.0,
+    2800000.0,
+    4000000.0,
+    5600000.0,
+    7000000.0,
+    10000000.0
+  ],
+  "targets": [
+    0.25,
+    0.3,
+    0.35
+  ],
+  "splits": 10,
+  "split_start": 95,
+  "train_test": "41/42 problems",
+  "train_permutations": 16,
+  "test_permutations": 48,
+  "folds": 4,
+  "delta": 0.05,
+  "bounded_probability_models": true,
+  "tail_decay_grid": false,
+  "tail_decay_definition": "smooth expected-improvement multiplier (opens/minimum_opens)^(-tail_decay); no horizon or cap",
+  "development_profile": {
+    "path": "codex_results/results/coding/simplification/target_development/simple_policy_profile.csv",
+    "sha256": "fcc8bce0bb3834000e013e2c33f681bfb94a9c5286d16baf5a367ddee4ab7d34",
+    "train_accuracy_weight": 0.0,
+    "profile_accuracy_weight": 1.0,
+    "current_train_cost_weight": 0.0,
+    "target_offset": 0.0,
+    "development_split_ids": [
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "development_train_permutations": 4,
+    "development_test_permutations": 8
+  },
+  "diagnostic_all_configs": false,
+  "frozen_target_config_by_target": null,
+  "seed": 20260802
+}

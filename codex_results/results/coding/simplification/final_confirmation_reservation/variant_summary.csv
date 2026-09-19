@@ -1,0 +1,3 @@
+variant,description,mean_relative_utility_gain_pct,mean_utility_delta_vs_reference,positive_divisor_means,divisors,mean_accuracy,mean_chars
+global_exp_q75_conf08_085x,global 75-percent exponential tail with D_res = 0.85 D,2.6263497402506735,-0.0005694176535730031,9,10,0.3041517857142857,13184.648368055558
+reference_profiled,retained per-divisor profiled policy,2.9072627604626606,0.0,10,10,0.3054513888888889,15380.022311507937

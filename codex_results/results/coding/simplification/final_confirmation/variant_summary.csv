@@ -1,0 +1,5 @@
+variant,description,mean_relative_utility_gain_pct,mean_utility_delta_vs_reference,positive_divisor_means,divisors,mean_accuracy,mean_chars
+global_exp_equal,one global exponential-tail configuration and D_res = D,2.2926270580115746,-0.001003069188889676,10,10,0.3113492063492064,16586.378125000003
+global_exp_equal_q75_conf08,global 75-percent exponential tail with confidence scale 0.8,2.447255102326236,-0.0009178364742772109,9,10,0.30652281746031745,14455.257589285713
+global_exp_piecewise,one global exponential-tail configuration with retained reservation bins,2.870124917827344,0.0001428174072893045,10,10,0.31007936507936507,16566.88005952381
+reference_profiled,retained per-divisor profiled policy,2.9072627604626606,0.0,10,10,0.3054513888888889,15380.022311507937

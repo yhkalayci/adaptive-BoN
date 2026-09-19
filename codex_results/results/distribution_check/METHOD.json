@@ -1,0 +1,9 @@
+{
+  "statistic": "for each problem, arithmetic mean of Python len(response text) over all available responses",
+  "layout": "1x3 histograms with 15 task-specific equal-width bins",
+  "alignment_generator": "llama3.1_8b",
+  "alpaca_source": "dataset/alpaca/llama3.1_8b_output.merged_rm.jsonl.gz",
+  "rlhf_source": "dataset/hh_rlhf/llama3.1_8b_output.merged_rm.jsonl.gz",
+  "coding_source": "algorithm/bestofn_coding/practical_algorithm/coding_char_counts_83.npz",
+  "coding_cohort": "83 solvable problems used by the coding experiments"
+}

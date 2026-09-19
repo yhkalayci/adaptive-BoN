@@ -1,0 +1,56 @@
+Subject: Updated experiments with variable generation costs
+
+Hi Shaddin,
+
+Sorry for the late reply. We discussed variants of the problem with different generation costs, so let me briefly summarize what I implemented.
+
+I define the cost as the response character count divided by M. For alignment, M ranges from 100,000 to 50 million; for coding, it ranges from 100,000 to 1 million. We currently measure characters rather than tokens because we do not store token boundaries. For example, when M is 100,000, generating 100,000 characters costs one utility unit—or one dollar if we interpret utility in dollar terms.
+
+The results look substantially more promising than the previous version.
+
+We also discussed how to reframe the paper. If we find these results sufficiently promising and convincing for practitioners, we could again present the paper around the practical contribution, together with a clean Pandora's box special case as the theoretical component. We also discussed whether we could develop a more general theory in which costs are sampled from another unknown distribution. Before deciding on a direction, we wanted to check what you think.
+
+Here is a summary of the experiments.
+
+For the alignment experiment, consider our original setting with the Bradley–Terry transformation, but now the actual cost is the total number of generated characters divided by M. The reward is still transformed relative to the 0.99 reward quantile, while the generation cost varies across responses.
+
+Because the cost of a response is unknown before generating it, I modified the algorithm to estimate the expected length of the next response from the samples observed so far. At each step, the algorithm fits an optimistic upper tail for the reward distribution, estimates the next response cost, and stops according to the UCB–Pandora rule. The estimated cost is used only for the stopping decision; final utility is always computed using the actual total character count.
+
+Utility: BT-transformed reward minus total generation cost.
+
+The three panels below show:
+
+1. Relative utility gain over the non-adaptive, train-tuned best-of-N algorithm.
+2. The probability that the adaptive method beats the non-adaptive method under the same mean character budget.
+3. Character savings when targeting a fixed quality level. This last objective is not exactly Pandora's box because it targets quality rather than utility, but it uses the same estimate-and-stop structure.
+
+Alignment experiment figure:
+/scratch1/kalayci/adaptive-BoN/codex_results/ucb_pandora_manuscript/figures/alignment/all_generators_three_objectives.png
+
+I then applied the same general idea to coding and reasoning tasks, where the final reward is binary correctness. We again compare against a non-adaptive fixed-N strategy and measure cost using the number of generated characters.
+
+Here we need to transform the reward-model score into a quantity related to correctness. On each split, I use the 41-problem selection half to fit an isotonic calibration map from the raw reward to the probability of correctness. The map is then frozen and applied to the untouched 42-problem test half. Unlike the earlier version, this procedure does not use reward buckets; it directly fits a monotone calibration function. During evaluation, the stopping algorithm observes only the calibrated reward and response length, not the correctness label.
+
+Utility: accuracy minus total generation cost.
+
+The following figure shows the adaptive method's relative and additive utility gain over the non-adaptive fixed-N baseline:
+
+Coding utility figure:
+/scratch1/kalayci/adaptive-BoN/codex_results/ucb_pandora_manuscript/figures/coding/coding_utility_improvement_frontier.png
+
+The next figure compares accuracy under the same expected character budget across different cost regimes:
+
+Coding equal-budget figure:
+/scratch1/kalayci/adaptive-BoN/codex_results/ucb_pandora_manuscript/figures/coding/coding_equal_budget_exp_tail.png
+
+Finally, the target-accuracy experiment compares our adaptive method against one non-adaptive baseline. The non-adaptive method chooses the best fixed N on the selection set, freezes that N, and then evaluates it on the test set. The goal is to reach a requested accuracy while using fewer generated characters.
+
+Coding target-accuracy figure:
+/scratch1/kalayci/adaptive-BoN/codex_results/ucb_pandora_manuscript/figures/coding/coding_target_quality_exp_tail.png
+
+In both the alignment and coding experiments, I use exponential upper-tail fitting.
+
+Let us know what you think. We can also meet in person, depending on your schedule, and I can walk you through the setup and results in more detail.
+
+Best,
+[Your Name]

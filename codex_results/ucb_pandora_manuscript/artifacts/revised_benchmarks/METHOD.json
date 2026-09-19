@@ -1,0 +1,22 @@
+{
+  "purpose": "streamlined manuscript baseline comparison",
+  "adaptive_results": "utility and target means read unchanged from the held-out confirmations of the selected training-free alignment rule and single-global-tail coding rule",
+  "implementable_fixed_n": "choose the utility-maximizing integer N on the outer training half; freeze N and evaluate on the test half",
+  "oracle_fixed_n": "choose the utility-maximizing integer N using the test half itself",
+  "alignment_oracle_character_budget": "use each test prompt's full-pool mean response length l_x; for each global budget R open clip(floor(R/l_x),1,H) responses; choose R on the test half from the exact union of allocation breakpoints",
+  "alignment_target_quality": "on the training half choose one adaptive divisor and one integer N; among policies attaining the target choose minimum mean characters; freeze both and evaluate on test; additionally report a post-hoc minimum-character randomization over at most two N values whose expected test quality exactly equals the adaptive policy's expected test quality",
+  "alignment_win_rate": "independent fixed-policy responses; adjacent-N randomization exactly matches the adaptive policy's expected test characters",
+  "coding_equal_budget": "frozen uncapped utility selector compared with independent Fixed-N at exactly matched expected test characters",
+  "coding_train_selected_fixed_character_budget": "choose one cumulative-character threshold R on the outer training half for each utility divisor; always open once, continue while observed cumulative characters are at most R, freeze R, and evaluate on test with exact realized character cost",
+  "coding_target_quality": "adaptive reservation divisor selected by the frozen development inverse profile; integer N selected to attain target accuracy on the outer training half; both frozen before test evaluation; also report a test-oracle common Fixed-N randomization at exactly the adaptive aggregate test accuracy",
+  "reported_cost": "exact cumulative characters actually opened",
+  "alignment_replay": {
+    "source": "codex_results/results/alignment/simplification/final_confirmation/utility_splits.csv",
+    "method": "codex_results/results/alignment/simplification/final_confirmation/METHOD.json"
+  },
+  "coding_replay": {
+    "source": "codex_results/results/coding/simplification/final_confirmation_reservation/utility_splits.csv",
+    "method": "codex_results/results/coding/simplification/final_confirmation_reservation/METHOD.json"
+  },
+  "uncertainty": "pointwise 95% Student-t intervals across ten splits"
+}

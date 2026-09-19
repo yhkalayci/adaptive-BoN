@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.82in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[section]{placeins}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Adaptive Best-of-$N$ with Unknown Reward\\
+and Unknown Generation-Cost Distributions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study adaptive generation when neither the prompt-specific reward
+distribution nor the cost of the next response is known.  Opening a box
+reveals a reward and a response length, and the objective is the best revealed
+reward minus the total realized generation cost.  We first formulate the
+i.i.d. Pandora problem with random opening costs.  Its known-distribution rule
+uses the mean random cost in the usual fair-cap equation.  We then state the
+learned-threshold guarantee of \emph{Learning When to Stop} for this setting;
+the proof is unchanged after the constant cost is replaced by the mean random
+cost and the fair-cap estimator is allowed to use both rewards and costs.
+
+For language-model tasks, the main practical difficulty is putting reward and
+cost into comparable units.  We give a detailed account of that calibration.
+Alignment uses a Bradley--Terry probability against a prompt-specific
+high-quality benchmark, while coding uses a train-only isotonic estimate of
+the probability of correctness.  The simplified alignment rule fits its
+upper tail entirely from the current prompt and needs no training stage.  The
+coding rule learns one global upper tail after isotonic calibration; the same
+configuration is used at every character cost.  Both estimate the next
+response length by its running mean and generate once more only when estimated
+gain exceeds estimated character cost.  We give one common blueprint and
+exact descriptions of these two rules.
+
+The experiments compare adaptive stopping with deployable and oracle fixed
+policies.  Alignment uses a train-selected Fixed-$N$, a test-oracle Fixed-$N$,
+and a stronger test-oracle character-budget allocation that knows each
+prompt's mean response length.  Coding uses train-selected and test-oracle
+Fixed-$N$ baselines and a fixed character budget selected on the training
+half and transferred unchanged to test.  The Alignment section reports
+utility, head-to-head win rate at exactly matched expected character cost,
+and target quality; the Coding section reports utility and target accuracy.
+In both target experiments, the Fixed-$N$ comparator is selected on the
+training half and frozen for test.  Target calibration plots are shown beside
+character savings so that train-to-test overshoot or undershoot is visible.
+We additionally give post-hoc Fixed-$N$ diagnostics at exactly the adaptive
+test quality, separating allocation efficiency from calibration error.  All
+reported costs are exact cumulative output characters, including for policies
+whose stopping decisions use estimated costs.
+\end{abstract}
+
+\input{sections/ucb_pandora_algorithms}
+
+\end{document}
