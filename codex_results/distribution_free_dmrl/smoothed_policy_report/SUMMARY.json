@@ -1,0 +1,31 @@
+{
+  "results": {
+    "FSFairX": {
+      "relative_percent": 5.549222169997431,
+      "relative_vs_test_oracle": 4.876135442910069,
+      "matched_saving_percent": 27.729856368885056
+    },
+    "Mistral": {
+      "relative_percent": 4.997752219450271,
+      "relative_vs_test_oracle": 4.295124843292003,
+      "matched_saving_percent": 25.148370602789946
+    }
+  },
+  "source_hashes": {
+    "FSFairX": {
+      "profit.csv": "ba2e226de4a3af6bdb19248434f8672a6ea05c75b7a69808b8f71b91c429848e",
+      "frontier_diagnostic.csv": "74b41ff774307f1c6b47321b3fe9372ba334e6f9a27557bb89e7a5d4cb521b0f",
+      "METHOD.json": "063a6952722e940ab532b0292ec8f63f35510580734a5353b15e4c80d1e5bde9"
+    },
+    "Mistral": {
+      "profit.csv": "6b412d8b571270518a27b51b049948aa89f016191cc01d1b09af004cf336366a",
+      "frontier_diagnostic.csv": "9f49b4121c7223cb445718aeb91a7a8feb395dd763aad5770e14743640b61586",
+      "METHOD.json": "a926544f58ff3308c599b4ea1f1eef72dc1752f629385f6c26585c81dd435b0c"
+    }
+  },
+  "script_sha256": "f213b3b0649d55bf9e2362b47355e4dc27c3a0242984369ae252aa857f84eba4",
+  "cost_unit": "characters",
+  "scope": "Only FSFairX and Mistral rewards; manuscript unchanged",
+  "selection": "Cost optimism coefficient 2 selected on Alpaca/Mistral development and frozen for FSFairX",
+  "uncertainty": "No error bars: displayed quantities are descriptive means over overlapping splits"
+}

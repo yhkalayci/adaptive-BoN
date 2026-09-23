@@ -1,0 +1,200 @@
+{
+  "primary": "sqrt32_a1_sequential",
+  "arithmetic_checks": 2700,
+  "primary_profit_matched_lp_checks": 150,
+  "primary_frontier_lp_checks": 340,
+  "paired_streams_match_previous": true,
+  "bootstrap_repetitions": 300,
+  "bootstrap_seed": 20260926,
+  "conditional_profit_interval": [
+    0.9100746182695799,
+    4.170543930918016
+  ],
+  "conditional_matched_saving_interval": [
+    6.258495585563367,
+    17.889698441268642
+  ],
+  "uncertainty": "Shared prompt weights across splits and generators; fixed comparator selections; descriptive conditional sensitivity, not independent confirmation",
+  "results": {
+    "fixed2_a1_sequential": {
+      "mean_profit_percent": -1.1278213262797705,
+      "mean_profit_vs_test_oracle_percent": -1.785679692561865,
+      "mean_matched_saving_percent": -9.305489010761466,
+      "positive_profit_cells": 9,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -5.525921401520574
+    },
+    "fixed2_a1_doubling": {
+      "mean_profit_percent": -2.7320275555430076,
+      "mean_profit_vs_test_oracle_percent": -3.3685228969564394,
+      "mean_matched_saving_percent": -7.093499976213771,
+      "positive_profit_cells": 7,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -1.3252917375358293
+    },
+    "fixed2_a2_sequential": {
+      "mean_profit_percent": -4.638165430434226,
+      "mean_profit_vs_test_oracle_percent": -5.259180141147925,
+      "mean_matched_saving_percent": -13.301065363333155,
+      "positive_profit_cells": 4,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -5.601918591549047
+    },
+    "fixed2_a2_doubling": {
+      "mean_profit_percent": -13.214353381439777,
+      "mean_profit_vs_test_oracle_percent": -13.75187172049394,
+      "mean_matched_saving_percent": -9.42100744047187,
+      "positive_profit_cells": 0,
+      "profit_cells": 30,
+      "frontier_feasible": 169,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -1.3964200800354378
+    },
+    "fixed2_a4_sequential": {
+      "mean_profit_percent": -16.48359239673773,
+      "mean_profit_vs_test_oracle_percent": -16.991619433907328,
+      "mean_matched_saving_percent": -17.09800003600183,
+      "positive_profit_cells": 0,
+      "profit_cells": 30,
+      "frontier_feasible": 165,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -6.1911919719165445
+    },
+    "fixed2_a4_doubling": {
+      "mean_profit_percent": -36.85708221528606,
+      "mean_profit_vs_test_oracle_percent": -37.17417672658483,
+      "mean_matched_saving_percent": -11.130906795947519,
+      "positive_profit_cells": 0,
+      "profit_cells": 30,
+      "frontier_feasible": 157,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -2.7807583319687676
+    },
+    "sqrt32_a1_sequential": {
+      "mean_profit_percent": 2.591476895354906,
+      "mean_profit_vs_test_oracle_percent": 1.9107409569264173,
+      "mean_matched_saving_percent": 14.12927085441239,
+      "positive_profit_cells": 25,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.523085674945428
+    },
+    "sqrt32_a1_doubling": {
+      "mean_profit_percent": -0.9627431613129287,
+      "mean_profit_vs_test_oracle_percent": -1.6103123205455439,
+      "mean_matched_saving_percent": 12.245057123918405,
+      "positive_profit_cells": 17,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 15.038205892980937
+    },
+    "sqrt32_a2_sequential": {
+      "mean_profit_percent": -4.666911833210009,
+      "mean_profit_vs_test_oracle_percent": -5.28205276185412,
+      "mean_matched_saving_percent": 12.598321257627813,
+      "positive_profit_cells": 2,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.621840407761212
+    },
+    "sqrt32_a2_doubling": {
+      "mean_profit_percent": -16.061674424522764,
+      "mean_profit_vs_test_oracle_percent": -16.575939704182876,
+      "mean_matched_saving_percent": 10.69324465932127,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 169,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 15.332733087091697
+    },
+    "sqrt32_a4_sequential": {
+      "mean_profit_percent": -25.28786951180866,
+      "mean_profit_vs_test_oracle_percent": -25.717827484717922,
+      "mean_matched_saving_percent": 10.3615675458673,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 166,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.73607124266991
+    },
+    "sqrt32_a4_doubling": {
+      "mean_profit_percent": -49.13114356693229,
+      "mean_profit_vs_test_oracle_percent": -49.34482332212608,
+      "mean_matched_saving_percent": 7.8079935375975325,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 158,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 15.384657655838355
+    },
+    "quarter32_a1_sequential": {
+      "mean_profit_percent": 2.8540487332394635,
+      "mean_profit_vs_test_oracle_percent": 2.170746154089058,
+      "mean_matched_saving_percent": 14.785465095064264,
+      "positive_profit_cells": 23,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 17.090547675106684
+    },
+    "quarter32_a1_doubling": {
+      "mean_profit_percent": -0.855404911259353,
+      "mean_profit_vs_test_oracle_percent": -1.5048212312003706,
+      "mean_matched_saving_percent": 12.971306546886614,
+      "positive_profit_cells": 17,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 15.934434278346306
+    },
+    "quarter32_a2_sequential": {
+      "mean_profit_percent": -4.479740453668179,
+      "mean_profit_vs_test_oracle_percent": -5.099233063015669,
+      "mean_matched_saving_percent": 12.82159178836018,
+      "positive_profit_cells": 2,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.964688569814644
+    },
+    "quarter32_a2_doubling": {
+      "mean_profit_percent": -15.562727348056002,
+      "mean_profit_vs_test_oracle_percent": -16.083287585535082,
+      "mean_matched_saving_percent": 11.326838857402812,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 169,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.019840396864584
+    },
+    "quarter32_a4_sequential": {
+      "mean_profit_percent": -26.043803646393414,
+      "mean_profit_vs_test_oracle_percent": -26.471908361025726,
+      "mean_matched_saving_percent": 10.471228007408508,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 167,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.920017852451327
+    },
+    "quarter32_a4_doubling": {
+      "mean_profit_percent": -49.89275264750563,
+      "mean_profit_vs_test_oracle_percent": -50.105788490294046,
+      "mean_matched_saving_percent": 8.447790278805456,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 157,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 16.221228577820504
+    }
+  }
+}

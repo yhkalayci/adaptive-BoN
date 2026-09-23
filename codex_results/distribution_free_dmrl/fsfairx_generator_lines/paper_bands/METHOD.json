@@ -1,0 +1,13 @@
+{
+  "reward_model": "FSFairX",
+  "policy": "mean_costse2",
+  "source_data": "../pointwise_intervals.csv",
+  "source_sha256": "f64b60c66132d4b6b8ddb2b5bee1265d4b6eaa3aef2506b8db7f1fa6094b6c76",
+  "script_sha256": "f899dc1baea08e32d4672143dbf41d08cfa70b6c3334ba291171123d5f6cf74a",
+  "interval": "Same pointwise 95% shared-prompt bootstrap intervals as the whisker plot",
+  "bootstrap_repetitions": 1000,
+  "rendering": "Five generators; alpha .12; actual x positions, no offsets; linearly connected bounds on log-price axis",
+  "cost_unit": "Recorded characters in current caches; these are not tokenizer-based cost results",
+  "caveat": "Conditional intervals, not simultaneous or adjusted for policy development",
+  "manuscript_modified": false
+}

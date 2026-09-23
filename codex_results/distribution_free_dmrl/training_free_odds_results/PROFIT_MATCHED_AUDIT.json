@@ -1,0 +1,39 @@
+{
+  "primary": "rank_jensen_bound",
+  "lp_checks": 150,
+  "average_profit_percent": 3.8532986363322053,
+  "average_matched_saving_percent": 24.366467713431188,
+  "average_profit_vs_test_oracle_percent": 3.159264419189159,
+  "positive_profit_cells": 24,
+  "positive_saving_cells": 30,
+  "total_cells": 30,
+  "by_generator": {
+    "gemma2_9b": {
+      "relative_profit_percent": 3.9220815933318747,
+      "matched_saving_percent": 26.849834472683163,
+      "relative_vs_test_oracle": 3.287059254245084
+    },
+    "llama3.1_8b": {
+      "relative_profit_percent": 5.591933657564086,
+      "matched_saving_percent": 28.80186890878418,
+      "relative_vs_test_oracle": 4.699354117667105
+    },
+    "llama3.2_3b": {
+      "relative_profit_percent": 4.807677510121527,
+      "matched_saving_percent": 27.36105083267457,
+      "relative_vs_test_oracle": 4.003417205760325
+    },
+    "mistral_7b": {
+      "relative_profit_percent": 1.2404519282392095,
+      "matched_saving_percent": 14.999000337013785,
+      "relative_vs_test_oracle": 0.7610278987859407
+    },
+    "qwen2.5_7b": {
+      "relative_profit_percent": 3.7043484924043315,
+      "matched_saving_percent": 23.82058401600024,
+      "relative_vs_test_oracle": 3.045463619487342
+    }
+  },
+  "interpretation": "Matched at each price-based policy attained quality, not successful control of a requested target. The fixed-N mixture is chosen retrospectively.",
+  "scope": "Exploratory reused Alpaca prompts; no independent confirmation; no coding replay"
+}

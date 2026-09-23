@@ -1,0 +1,61 @@
+{
+  "primary": "mean_costse2",
+  "arithmetic_checks": 600,
+  "primary_profit_matched_lp_checks": 150,
+  "primary_frontier_lp_checks": 322,
+  "paired_streams_match_previous": null,
+  "primary_overridden": false,
+  "bootstrap_repetitions": 300,
+  "bootstrap_seed": 20260926,
+  "conditional_profit_interval": [
+    4.089228149133432,
+    7.045085141716856
+  ],
+  "conditional_matched_saving_interval": [
+    20.080837549479273,
+    31.519912472466718
+  ],
+  "uncertainty": "Shared prompt weights across splits and generators; fixed comparator selections; descriptive conditional sensitivity, not independent confirmation",
+  "results": {
+    "previous": {
+      "mean_profit_percent": 4.68310750281585,
+      "mean_profit_vs_test_oracle_percent": 4.016597755693637,
+      "mean_matched_saving_percent": 27.081514103667644,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 162,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 28.076945482492132
+    },
+    "mean_costse0": {
+      "mean_profit_percent": 5.26149994235664,
+      "mean_profit_vs_test_oracle_percent": 4.591360978393505,
+      "mean_matched_saving_percent": 27.239824709181164,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 162,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 28.69499739829209
+    },
+    "mean_costse1": {
+      "mean_profit_percent": 5.414839455496767,
+      "mean_profit_vs_test_oracle_percent": 4.74320767125908,
+      "mean_matched_saving_percent": 27.493961799500795,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 162,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 28.931948254793458
+    },
+    "mean_costse2": {
+      "mean_profit_percent": 5.549222169997431,
+      "mean_profit_vs_test_oracle_percent": 4.876135442910069,
+      "mean_matched_saving_percent": 27.729856368885056,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 161,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 29.324380460442253
+    }
+  }
+}

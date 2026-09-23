@@ -1,0 +1,226 @@
+{
+  "stage": "development",
+  "configs": [
+    {
+      "base": "odds",
+      "smoothing": "current",
+      "minimum": 4
+    },
+    {
+      "base": "odds",
+      "smoothing": "current",
+      "minimum": 6
+    },
+    {
+      "base": "odds",
+      "smoothing": "current",
+      "minimum": 8
+    },
+    {
+      "base": "odds",
+      "smoothing": "mean",
+      "minimum": 4
+    },
+    {
+      "base": "odds",
+      "smoothing": "mean",
+      "minimum": 6
+    },
+    {
+      "base": "odds",
+      "smoothing": "mean",
+      "minimum": 8
+    },
+    {
+      "base": "odds",
+      "smoothing": "recent_half",
+      "minimum": 4
+    },
+    {
+      "base": "odds",
+      "smoothing": "recent_half",
+      "minimum": 6
+    },
+    {
+      "base": "odds",
+      "smoothing": "recent_half",
+      "minimum": 8
+    },
+    {
+      "base": "spacing",
+      "smoothing": "current",
+      "minimum": 4
+    },
+    {
+      "base": "spacing",
+      "smoothing": "current",
+      "minimum": 6
+    },
+    {
+      "base": "spacing",
+      "smoothing": "current",
+      "minimum": 8
+    },
+    {
+      "base": "spacing",
+      "smoothing": "mean",
+      "minimum": 4
+    },
+    {
+      "base": "spacing",
+      "smoothing": "mean",
+      "minimum": 6
+    },
+    {
+      "base": "spacing",
+      "smoothing": "mean",
+      "minimum": 8
+    },
+    {
+      "base": "spacing",
+      "smoothing": "recent_half",
+      "minimum": 4
+    },
+    {
+      "base": "spacing",
+      "smoothing": "recent_half",
+      "minimum": 6
+    },
+    {
+      "base": "spacing",
+      "smoothing": "recent_half",
+      "minimum": 8
+    }
+  ],
+  "names": [
+    "odds_current_n4",
+    "odds_current_n6",
+    "odds_current_n8",
+    "odds_mean_n4",
+    "odds_mean_n6",
+    "odds_mean_n8",
+    "odds_recent_half_n4",
+    "odds_recent_half_n6",
+    "odds_recent_half_n8",
+    "spacing_current_n4",
+    "spacing_current_n6",
+    "spacing_current_n8",
+    "spacing_mean_n4",
+    "spacing_mean_n6",
+    "spacing_mean_n8",
+    "spacing_recent_half_n4",
+    "spacing_recent_half_n6",
+    "spacing_recent_half_n8"
+  ],
+  "primary": "odds_mean_n4",
+  "data_dir": "dataset/alpaca",
+  "training_free": true,
+  "no_parametric_fit": true,
+  "selection": "No runtime fitting across prompts; global development selection must be disclosed",
+  "rates": [
+    2e-10,
+    2.6670428643266486e-10,
+    3.5565588200778463e-10,
+    4.742747411323311e-10,
+    6.324555320336759e-10,
+    8.433930068571646e-10,
+    1.1246826503806984e-09,
+    1.499788418664912e-09,
+    2e-09,
+    2.6670428643266483e-09,
+    3.556558820077846e-09,
+    4.742747411323311e-09,
+    6.32455532033676e-09,
+    8.433930068571645e-09,
+    1.1246826503806984e-08,
+    1.499788418664912e-08,
+    2e-08,
+    2.0000000000000004e-08,
+    2.6670428643266484e-08,
+    3.556558820077846e-08,
+    4.742747411323311e-08,
+    6.32455532033676e-08,
+    8.433930068571646e-08,
+    1e-07,
+    1.1246826503806984e-07,
+    1.4997884186649117e-07,
+    2e-07,
+    2.0000000000000002e-07,
+    2.6670428643266486e-07,
+    3.556558820077846e-07,
+    4.7427474113233113e-07,
+    6.324555320336759e-07,
+    8.433930068571646e-07,
+    1e-06,
+    1.1246826503806983e-06,
+    1.499788418664912e-06,
+    2e-06,
+    2.0000000000000003e-06,
+    2.6670428643266486e-06,
+    3.5565588200778462e-06,
+    4.742747411323311e-06,
+    6.324555320336759e-06,
+    8.433930068571647e-06,
+    1e-05,
+    1.1246826503806982e-05,
+    1.4997884186649118e-05,
+    2e-05,
+    2.6670428643266484e-05,
+    3.556558820077846e-05,
+    4.7427474113233114e-05,
+    6.324555320336759e-05,
+    8.433930068571646e-05,
+    0.00011246826503806983,
+    0.0001499788418664912,
+    0.0002
+  ],
+  "prices": [
+    2e-08,
+    1e-07,
+    2e-07,
+    1e-06,
+    2e-06,
+    1e-05
+  ],
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "replay_seed": 20260923,
+  "permutations": 8,
+  "cap": 960,
+  "cost_unit": "characters",
+  "matched_quality": "Attained quality; post-hoc fixed-N mixture",
+  "frontier": "Post-hoc mixtures of both classes; not training-free target control",
+  "source_sha256": "ef74fdd43542548ef3b916b8e056ed5ff63d62dff1af413512a517c49116a161",
+  "datasets": {
+    "gemma2_9b": {
+      "path": "dataset/alpaca/gemma2_9b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "92dd71382b250dee139647f90e11cea24d14ec47d49462850d62be1055a41f8b"
+    },
+    "llama3.1_8b": {
+      "path": "dataset/alpaca/llama3.1_8b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "c48d6cd7d5f162685e1ac43546290daa866306d9aa7f4d4f4571031ca91c35de"
+    },
+    "llama3.2_3b": {
+      "path": "dataset/alpaca/llama3.2_3b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "f74edc9dd8172348c98e18fc9e35081c4ef60ce6978073828f395fe6219b5c33"
+    },
+    "mistral_7b": {
+      "path": "dataset/alpaca/mistral_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "988de4560670d53458b77209a074592116b01e21db61ed2b6be6cb27216b338f"
+    },
+    "qwen2.5_7b": {
+      "path": "dataset/alpaca/qwen2.5_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "dfdcd6f3668455ef9ae68409e756f154953e511f232f157f9b36c3f080290aca"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "data": "pointwise_intervals.csv",
+  "data_sha256": "f64b60c66132d4b6b8ddb2b5bee1265d4b6eaa3aef2506b8db7f1fa6094b6c76",
+  "script_sha256": "ab90a37e108ac9c1ed3a5ff84d964a61c1a4bc0640b32ad34fa7b804117dc588",
+  "layout": "profit left, attained-quality cost savings right; FSFairX only; five generator lines; pointwise CI whiskers"
+}

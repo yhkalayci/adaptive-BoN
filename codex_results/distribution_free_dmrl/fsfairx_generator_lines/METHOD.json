@@ -1,0 +1,29 @@
+{
+  "reward_model": "FSFairX",
+  "method": "mean_costse2",
+  "generators": [
+    "gemma2_9b",
+    "llama3.1_8b",
+    "llama3.2_3b",
+    "mistral_7b",
+    "qwen2.5_7b"
+  ],
+  "bootstrap_repetitions": 1000,
+  "seed": 20260930,
+  "confidence": 0.95,
+  "resampling": "Multinomial prompt weights shared across splits and generators; eight orders averaged within prompt",
+  "aggregation": "Mean of splitwise relative improvements, preserving original plotted estimand",
+  "conditional_on": "Adaptive policy, fixed-N selections, existing prompt splits, cached replay averages",
+  "reestimated": "Quality-matched fixed-N frontier in each resample",
+  "limitation": "Pointwise conditional percentile intervals; not simultaneous and not adjusted for policy-development selection",
+  "plotted_values_verified_against_saved_csv": true,
+  "x_offsets": "exp(.045*(generator_index-2)) only for visual separation",
+  "source_hashes": {
+    "gemma2_9b": "c3375846a6d2c676592b1048eced2b5d0137044c0af17018502256f5804dccc2",
+    "llama3.1_8b": "d0aeb4789a0860df76b288bcb8e6bba8ee58c63bb06b3e4a10d16ed2cc31bfb0",
+    "llama3.2_3b": "d0a5735801767bea93af0e63f7973dd7e43960be064ddf8b7afab0e83156d355",
+    "mistral_7b": "1a9ef7e2632907e39f9cae1e637eb2aab9d2afedaf12dadd51534f59ba21e3a5",
+    "qwen2.5_7b": "f548ec30d0ca3f29d9e1772a416fa3480184d3b312957a97c1a77599203298b6"
+  },
+  "script_sha256": "f430171311445b36ca3e23bc12124e3f672efed4c93b82a004ff4dfc773124c8"
+}

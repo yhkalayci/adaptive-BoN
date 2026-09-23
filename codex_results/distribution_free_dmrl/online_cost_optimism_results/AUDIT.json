@@ -1,0 +1,81 @@
+{
+  "primary": "odds_mean_costse1",
+  "arithmetic_checks": 900,
+  "primary_profit_matched_lp_checks": 150,
+  "primary_frontier_lp_checks": 340,
+  "paired_streams_match_previous": true,
+  "primary_overridden": false,
+  "bootstrap_repetitions": 300,
+  "bootstrap_seed": 20260926,
+  "conditional_profit_interval": [
+    3.5063323959262633,
+    6.188046552187164
+  ],
+  "conditional_matched_saving_interval": [
+    18.31631345553651,
+    28.29280454214259
+  ],
+  "uncertainty": "Shared prompt weights across splits and generators; fixed comparator selections; descriptive conditional sensitivity, not independent confirmation",
+  "results": {
+    "odds_current_costse0": {
+      "mean_profit_percent": 3.8532986363322053,
+      "mean_profit_vs_test_oracle_percent": 3.1592644191891575,
+      "mean_matched_saving_percent": 24.366467713431188,
+      "positive_profit_cells": 24,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 25.768542912780354
+    },
+    "odds_current_costse1": {
+      "mean_profit_percent": 4.185406349973949,
+      "mean_profit_vs_test_oracle_percent": 3.488306059872904,
+      "mean_matched_saving_percent": 24.934553754500364,
+      "positive_profit_cells": 25,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 26.059678762578084
+    },
+    "odds_current_costse2": {
+      "mean_profit_percent": 4.375962886530662,
+      "mean_profit_vs_test_oracle_percent": 3.677714725833201,
+      "mean_matched_saving_percent": 25.294916829263137,
+      "positive_profit_cells": 26,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 26.128882286369
+    },
+    "odds_mean_costse0": {
+      "mean_profit_percent": 4.616321928643997,
+      "mean_profit_vs_test_oracle_percent": 3.916982739172829,
+      "mean_matched_saving_percent": 24.497600914511565,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 25.952946300917382
+    },
+    "odds_mean_costse1": {
+      "mean_profit_percent": 4.84275958098119,
+      "mean_profit_vs_test_oracle_percent": 4.141698588199145,
+      "mean_matched_saving_percent": 24.88235225515314,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 26.014298149321107
+    },
+    "odds_mean_costse2": {
+      "mean_profit_percent": 4.997752219450271,
+      "mean_profit_vs_test_oracle_percent": 4.295124843292003,
+      "mean_matched_saving_percent": 25.148370602789946,
+      "positive_profit_cells": 29,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 26.11950621103485
+    }
+  }
+}

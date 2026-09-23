@@ -1,0 +1,80 @@
+{
+  "primary": "sqrt32_include",
+  "arithmetic_checks": 900,
+  "primary_profit_matched_lp_checks": 150,
+  "primary_frontier_lp_checks": 340,
+  "paired_streams_match_previous": true,
+  "bootstrap_repetitions": 300,
+  "bootstrap_seed": 20260926,
+  "conditional_profit_interval": [
+    0.2424669620440426,
+    2.3872039800850415
+  ],
+  "conditional_matched_saving_interval": [
+    1.669811350740513,
+    12.619163609095706
+  ],
+  "uncertainty": "Shared prompt weights across splits and generators; fixed comparator selections; descriptive conditional sensitivity, not independent confirmation",
+  "results": {
+    "half_include": {
+      "mean_profit_percent": -45.212809366778465,
+      "mean_profit_vs_test_oracle_percent": -45.49378835098741,
+      "mean_matched_saving_percent": -44.46099502462144,
+      "positive_profit_cells": 1,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -77.0129891700909
+    },
+    "half_exclude": {
+      "mean_profit_percent": -29.25792185557548,
+      "mean_profit_vs_test_oracle_percent": -29.678481362100083,
+      "mean_matched_saving_percent": -200.61911375519713,
+      "positive_profit_cells": 0,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -197.3142272477788
+    },
+    "quarter32_include": {
+      "mean_profit_percent": -0.2895611499119326,
+      "mean_profit_vs_test_oracle_percent": -0.9471670945568114,
+      "mean_matched_saving_percent": 0.5731891408294367,
+      "positive_profit_cells": 17,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -2.818743525064258
+    },
+    "quarter32_exclude": {
+      "mean_profit_percent": -10.200026896364685,
+      "mean_profit_vs_test_oracle_percent": -10.804724177586255,
+      "mean_matched_saving_percent": -84.7441200852878,
+      "positive_profit_cells": 4,
+      "profit_cells": 30,
+      "frontier_feasible": 169,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -101.57474617306404
+    },
+    "sqrt32_include": {
+      "mean_profit_percent": 1.3379211914460378,
+      "mean_profit_vs_test_oracle_percent": 0.6666963405095739,
+      "mean_matched_saving_percent": 8.98599410806711,
+      "positive_profit_cells": 22,
+      "profit_cells": 30,
+      "frontier_feasible": 170,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": 8.228157093811753
+    },
+    "sqrt32_exclude": {
+      "mean_profit_percent": -8.306363850364908,
+      "mean_profit_vs_test_oracle_percent": -8.923040330437562,
+      "mean_matched_saving_percent": -31.191533722000678,
+      "positive_profit_cells": 4,
+      "profit_cells": 30,
+      "frontier_feasible": 169,
+      "frontier_total": 175,
+      "descriptive_frontier_saving_percent": -44.431608248987594
+    }
+  }
+}

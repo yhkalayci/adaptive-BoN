@@ -1,0 +1,212 @@
+{
+  "primary": "sqrt32_a1_sequential",
+  "configs": [
+    {
+      "width": "fixed2",
+      "factor": 1.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "fixed2",
+      "factor": 1.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "fixed2",
+      "factor": 2.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "fixed2",
+      "factor": 2.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "fixed2",
+      "factor": 4.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "fixed2",
+      "factor": 4.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 1.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 1.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 2.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 2.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 4.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "sqrt32",
+      "factor": 4.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "quarter32",
+      "factor": 1.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "quarter32",
+      "factor": 1.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "quarter32",
+      "factor": 2.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "quarter32",
+      "factor": 2.0,
+      "schedule": "doubling"
+    },
+    {
+      "width": "quarter32",
+      "factor": 4.0,
+      "schedule": "sequential"
+    },
+    {
+      "width": "quarter32",
+      "factor": 4.0,
+      "schedule": "doubling"
+    }
+  ],
+  "rates": [
+    2e-10,
+    2.6670428643266486e-10,
+    3.5565588200778463e-10,
+    4.742747411323311e-10,
+    6.324555320336759e-10,
+    8.433930068571646e-10,
+    1.1246826503806984e-09,
+    1.499788418664912e-09,
+    2e-09,
+    2.6670428643266483e-09,
+    3.556558820077846e-09,
+    4.742747411323311e-09,
+    6.32455532033676e-09,
+    8.433930068571645e-09,
+    1.1246826503806984e-08,
+    1.499788418664912e-08,
+    2e-08,
+    2.0000000000000004e-08,
+    2.6670428643266484e-08,
+    3.556558820077846e-08,
+    4.742747411323311e-08,
+    6.32455532033676e-08,
+    8.433930068571646e-08,
+    1e-07,
+    1.1246826503806984e-07,
+    1.4997884186649117e-07,
+    2e-07,
+    2.0000000000000002e-07,
+    2.6670428643266486e-07,
+    3.556558820077846e-07,
+    4.7427474113233113e-07,
+    6.324555320336759e-07,
+    8.433930068571646e-07,
+    1e-06,
+    1.1246826503806983e-06,
+    1.499788418664912e-06,
+    2e-06,
+    2.0000000000000003e-06,
+    2.6670428643266486e-06,
+    3.5565588200778462e-06,
+    4.742747411323311e-06,
+    6.324555320336759e-06,
+    8.433930068571647e-06,
+    1e-05,
+    1.1246826503806982e-05,
+    1.4997884186649118e-05,
+    2e-05,
+    2.6670428643266484e-05,
+    3.556558820077846e-05,
+    4.7427474113233114e-05,
+    6.324555320336759e-05,
+    8.433930068571646e-05,
+    0.00011246826503806983,
+    0.0001499788418664912,
+    0.0002
+  ],
+  "training_free": true,
+  "prices": [
+    2e-08,
+    1e-07,
+    2e-07,
+    1e-06,
+    2e-06,
+    1e-05
+  ],
+  "targets": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "cap": 960,
+  "permutations": 8,
+  "replay_seed": 20260923,
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "cost_unit": "characters",
+  "adaptive_selection": "None: actual deployment price; no trained multiplier or reference",
+  "matched_quality": "Profit policy attained quality matched by test-oracle fixed-N mixture",
+  "target_frontier": "Both price mixtures and fixed-N mixtures are post-hoc diagnostics, not target controllers",
+  "source_sha256": "83eaeb2f2da8fca5ece3fa74af27aeac9a8ef88a48e9388267e3cc7473182ce6",
+  "datasets": {
+    "gemma2_9b": {
+      "path": "dataset/alpaca/gemma2_9b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "92dd71382b250dee139647f90e11cea24d14ec47d49462850d62be1055a41f8b"
+    },
+    "llama3.1_8b": {
+      "path": "dataset/alpaca/llama3.1_8b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "c48d6cd7d5f162685e1ac43546290daa866306d9aa7f4d4f4571031ca91c35de"
+    },
+    "llama3.2_3b": {
+      "path": "dataset/alpaca/llama3.2_3b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "f74edc9dd8172348c98e18fc9e35081c4ef60ce6978073828f395fe6219b5c33"
+    },
+    "mistral_7b": {
+      "path": "dataset/alpaca/mistral_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "988de4560670d53458b77209a074592116b01e21db61ed2b6be6cb27216b338f"
+    },
+    "qwen2.5_7b": {
+      "path": "dataset/alpaca/qwen2.5_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "dfdcd6f3668455ef9ae68409e756f154953e511f232f157f9b36c3f080290aca"
+    }
+  }
+}

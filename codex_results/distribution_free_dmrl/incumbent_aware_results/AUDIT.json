@@ -1,0 +1,63 @@
+{
+  "checks": {
+    "profit_selections": 600,
+    "target_training_optima": 700,
+    "test_matched_optima": 700
+  },
+  "source_and_data_hashes_verified": true,
+  "bootstrap": {
+    "replicates": 400,
+    "seed": 20260924,
+    "interpretation": "Descriptive conditional prompt-cluster sensitivity; selections and training fits fixed. Same prompt weights across generators and overlapping splits. Not independent confirmation, no adjustment for model development."
+  },
+  "methods": {
+    "spacing": {
+      "mean_profit_improvement_percent": 4.123601727169121,
+      "profit_conditional_95_percentile": [
+        2.853237951795334,
+        5.552682582780703
+      ],
+      "mean_quality_matched_saving_percent": 20.666786422236655,
+      "saving_conditional_95_percentile": [
+        13.90680549941171,
+        25.072528086239863
+      ]
+    },
+    "dmrl_envelope": {
+      "mean_profit_improvement_percent": -0.22269713541215888,
+      "profit_conditional_95_percentile": [
+        -1.228962774809749,
+        0.6163630849964182
+      ],
+      "mean_quality_matched_saving_percent": -6.902167894832001,
+      "saving_conditional_95_percentile": [
+        -16.162980154019387,
+        -1.3569441609847364
+      ]
+    },
+    "moment_envelope": {
+      "mean_profit_improvement_percent": 3.2509406026396603,
+      "profit_conditional_95_percentile": [
+        2.3652081132215836,
+        4.180523972898831
+      ],
+      "mean_quality_matched_saving_percent": 16.129263547460358,
+      "saving_conditional_95_percentile": [
+        10.589860870941783,
+        19.27576353967832
+      ]
+    },
+    "all_train_selected": {
+      "mean_profit_improvement_percent": 4.156605048242297,
+      "profit_conditional_95_percentile": [
+        2.990723918462261,
+        5.566806982648021
+      ],
+      "mean_quality_matched_saving_percent": 20.805138898100576,
+      "saving_conditional_95_percentile": [
+        14.209796995169686,
+        24.823829066585166
+      ]
+    }
+  }
+}

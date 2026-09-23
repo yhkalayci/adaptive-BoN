@@ -1,5 +1,13 @@
 # Optimal Stopping VS Best-of-N For Inference Time Optimization
 
+## Current alignment algorithm
+
+The updated, training-free alignment stopping rule is available as a standalone
+implementation: **[adaptive_alignment.py](algorithm/adaptive_alignment.py)**.
+Start with the **[algorithm and usage guide](algorithm/ADAPTIVE_ALIGNMENT.md)**
+or **[server setup and reproduction commands](SERVER_HANDOFF.md)**.
+The original experimental pipeline below is retained for historical context.
+
 <div style="padding: 20px; text-align: center; color: white; font-family: Arial, sans-serif;">
   <p style="font-size: 24px; margin-bottom: 10px;">
     <a href="#" style="text-decoration: none;">Yusuf Hakan Kalayci</a><sup>1*</sup>, 

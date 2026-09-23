@@ -1,0 +1,138 @@
+{
+  "primary": "odds_mean_n3_costse1",
+  "stage": "confirmation",
+  "configs": [
+    {
+      "minimum": 3,
+      "smoothing": "mean",
+      "cost_optimism": 1.0
+    },
+    {
+      "minimum": 4,
+      "smoothing": "current",
+      "cost_optimism": 0.0
+    },
+    {
+      "minimum": 4,
+      "smoothing": "mean",
+      "cost_optimism": 1.0
+    }
+  ],
+  "names": [
+    "odds_mean_n3_costse1",
+    "odds_current_n4_costse0",
+    "odds_mean_n4_costse1"
+  ],
+  "rates": [
+    2e-10,
+    2.6670428643266486e-10,
+    3.5565588200778463e-10,
+    4.742747411323311e-10,
+    6.324555320336759e-10,
+    8.433930068571646e-10,
+    1.1246826503806984e-09,
+    1.499788418664912e-09,
+    2e-09,
+    2.6670428643266483e-09,
+    3.556558820077846e-09,
+    4.742747411323311e-09,
+    6.32455532033676e-09,
+    8.433930068571645e-09,
+    1.1246826503806984e-08,
+    1.499788418664912e-08,
+    2e-08,
+    2.0000000000000004e-08,
+    2.6670428643266484e-08,
+    3.556558820077846e-08,
+    4.742747411323311e-08,
+    6.32455532033676e-08,
+    8.433930068571646e-08,
+    1e-07,
+    1.1246826503806984e-07,
+    1.4997884186649117e-07,
+    2e-07,
+    2.0000000000000002e-07,
+    2.6670428643266486e-07,
+    3.556558820077846e-07,
+    4.7427474113233113e-07,
+    6.324555320336759e-07,
+    8.433930068571646e-07,
+    1e-06,
+    1.1246826503806983e-06,
+    1.499788418664912e-06,
+    2e-06,
+    2.0000000000000003e-06,
+    2.6670428643266486e-06,
+    3.5565588200778462e-06,
+    4.742747411323311e-06,
+    6.324555320336759e-06,
+    8.433930068571647e-06,
+    1e-05,
+    1.1246826503806982e-05,
+    1.4997884186649118e-05,
+    2e-05,
+    2.6670428643266484e-05,
+    3.556558820077846e-05,
+    4.7427474113233114e-05,
+    6.324555320336759e-05,
+    8.433930068571646e-05,
+    0.00011246826503806983,
+    0.0001499788418664912,
+    0.0002
+  ],
+  "prices": [
+    2e-08,
+    1e-07,
+    2e-07,
+    1e-06,
+    2e-06,
+    1e-05
+  ],
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "training_free": true,
+  "no_parametric_fit": true,
+  "permutations": 8,
+  "replay_seed": 20260929,
+  "cap": 960,
+  "cost_unit": "characters",
+  "source_sha256": "9eb8e6605b44233ddfdcec177c31a46de3e76afa699caefc09be47757003acce",
+  "dependency_sha256": {
+    "online_smoothed_spacing.py": "ef74fdd43542548ef3b916b8e056ed5ff63d62dff1af413512a517c49116a161",
+    "online_cost_optimism.py": "c149e449237199988f457a3a76b788fdf520728903f68697a28386dbedd132bd",
+    "training_free_spacing.py": "83eaeb2f2da8fca5ece3fa74af27aeac9a8ef88a48e9388267e3cc7473182ce6"
+  },
+  "caveat": "Empirical smoothing, early start, and cost optimism are not covered by the theorem",
+  "datasets": {
+    "gemma2_9b": {
+      "path": "dataset/hh_rlhf/gemma2_9b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "c87ed190f140d6ab871500a1da9d6165272a103f01e86b48924bec60318ce924"
+    },
+    "llama3.1_8b": {
+      "path": "dataset/hh_rlhf/llama3.1_8b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "837b3a957bfbb771ae7920d8910f57191cdbad7e2de5d8fad8aff16f756e35dd"
+    },
+    "llama3.2_3b": {
+      "path": "dataset/hh_rlhf/llama3.2_3b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "d68277c76711c22280029e25f6c74216701fa29e80eac38347dc517404dd3bb8"
+    },
+    "mistral_7b": {
+      "path": "dataset/hh_rlhf/mistral_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "dbe748d8ca11258ef71d37638a4f47d8d09ce87f824c02fbbb72806ccaa8107e"
+    },
+    "qwen2.5_7b": {
+      "path": "dataset/hh_rlhf/qwen2.5_7b_output.merged_rm.jsonl.gz",
+      "actual_cap": 960,
+      "sha256": "ff2f4710da18bc4cc92af1b9254cda1e88e93412f5bf25754cc558b6ffcabe30"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "checks": {
+    "profit_selections": 450,
+    "target_training_optima": 525,
+    "test_matched_optima": 525
+  },
+  "source_and_data_hashes_verified": true,
+  "bootstrap": {
+    "replicates": 400,
+    "seed": 20260924,
+    "interpretation": "Descriptive conditional prompt-cluster sensitivity; selections and training fits fixed. Same prompt weights across generators and overlapping splits. Not independent confirmation, no adjustment for model development."
+  },
+  "methods": {
+    "empirical_spacing": {
+      "mean_profit_improvement_percent": 4.009328851559374,
+      "profit_conditional_95_percentile": [
+        2.733330725205451,
+        5.385015565586125
+      ],
+      "mean_quality_matched_saving_percent": 19.779830902417235,
+      "saving_conditional_95_percentile": [
+        13.196222740201282,
+        24.168478818530257
+      ]
+    },
+    "corrected_spacing": {
+      "mean_profit_improvement_percent": 4.083702211300969,
+      "profit_conditional_95_percentile": [
+        2.7874192498972503,
+        5.5154653961013365
+      ],
+      "mean_quality_matched_saving_percent": 20.556154043301202,
+      "saving_conditional_95_percentile": [
+        13.620619012771721,
+        25.00675787692064
+      ]
+    },
+    "train_selected_spacing": {
+      "mean_profit_improvement_percent": 4.123601727169121,
+      "profit_conditional_95_percentile": [
+        2.853237951795334,
+        5.552682582780703
+      ],
+      "mean_quality_matched_saving_percent": 20.666786422236655,
+      "saving_conditional_95_percentile": [
+        13.90680549941171,
+        25.072528086239863
+      ]
+    }
+  }
+}

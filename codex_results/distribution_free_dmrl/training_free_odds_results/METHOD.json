@@ -1,0 +1,74 @@
+{
+  "training_free": true,
+  "primary": "rank_jensen_bound",
+  "variants": [
+    "rank_jensen_bound",
+    "rank_empirical_bound",
+    "shape_jensen_bound",
+    "shape_empirical_bound",
+    "rank_jensen_moment",
+    "rank_empirical_moment",
+    "shape_jensen_moment",
+    "shape_empirical_moment"
+  ],
+  "actual_prices": [
+    2e-08,
+    1e-07,
+    2e-07,
+    1e-06,
+    2e-06,
+    1e-05
+  ],
+  "targets": [
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "cap": 960,
+  "permutations": 8,
+  "replay_seed": 20260923,
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "source_sha256": "210302db0fa5592576102623141e391a58475d5f14a91074d977e9d59dd74538",
+  "minimum_samples": 4,
+  "threshold": "lower empirical median in exponentiated reward",
+  "cost_unit": "characters",
+  "selection": "No selection or fitting for adaptive rules. Training prompts select only fixed-N comparators.",
+  "scope": "Exploratory fixed-parameter variants; primary declared before execution; no certified theorem transfer",
+  "datasets": {
+    "gemma2_9b": {
+      "path": "dataset/alpaca/gemma2_9b_output.merged_rm.jsonl.gz",
+      "sha256": "92dd71382b250dee139647f90e11cea24d14ec47d49462850d62be1055a41f8b",
+      "actual_cap": 960
+    },
+    "llama3.1_8b": {
+      "path": "dataset/alpaca/llama3.1_8b_output.merged_rm.jsonl.gz",
+      "sha256": "c48d6cd7d5f162685e1ac43546290daa866306d9aa7f4d4f4571031ca91c35de",
+      "actual_cap": 960
+    },
+    "llama3.2_3b": {
+      "path": "dataset/alpaca/llama3.2_3b_output.merged_rm.jsonl.gz",
+      "sha256": "f74edc9dd8172348c98e18fc9e35081c4ef60ce6978073828f395fe6219b5c33",
+      "actual_cap": 960
+    },
+    "mistral_7b": {
+      "path": "dataset/alpaca/mistral_7b_output.merged_rm.jsonl.gz",
+      "sha256": "988de4560670d53458b77209a074592116b01e21db61ed2b6be6cb27216b338f",
+      "actual_cap": 960
+    },
+    "qwen2.5_7b": {
+      "path": "dataset/alpaca/qwen2.5_7b_output.merged_rm.jsonl.gz",
+      "sha256": "dfdcd6f3668455ef9ae68409e756f154953e511f232f157f9b36c3f080290aca",
+      "actual_cap": 960
+    }
+  }
+}

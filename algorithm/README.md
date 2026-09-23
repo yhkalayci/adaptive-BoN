@@ -1,5 +1,10 @@
 # Algorithm Execution
 
+For the current alignment policy, use
+[adaptive_alignment.py](adaptive_alignment.py) and its
+[standalone API guide](ADAPTIVE_ALIGNMENT.md).
+The experiment scripts described below implement the earlier fitted policies.
+
 This directory contains the scripts for running the experiments for our paper. The scripts implement and evaluate the adaptive inference-time optimization method described in the paper, which is inspired from Pandora's Box problem. The algorithms are designed to balance output quality against inference cost for large language model (LLM) generation.
 
 ## 1. Experiment with Cost
