@@ -1,11 +1,12 @@
 """Non-parametric DMRL stopping for coding generation.
 
 The only offline statistical fit is an increasing isotonic map from a reward
-to ``P(correct)``.  Online stopping is distribution-free: after at least five
-generations it measures the average excess of the four largest calibrated
-utilities over the fifth-largest utility, smooths that observed residual
-scale, and divides it by the number of observations.  No exponential or
-other parametric reward-tail distribution is fitted.
+to ``P(correct)``. The adopted paper rule uses the two largest calibrated
+utilities above the third-largest, averages excess estimates from count four,
+and divides by the current count. Use ``from_paper_settings`` for that rule;
+the constructor's legacy defaults retain the earlier top-five configuration.
+No parametric reward-tail distribution is fitted. This empirical rule does
+not inherit the DMRL theorem's guarantee without its assumptions.
 
 Correctness labels are used only to fit the isotonic map on a disjoint
 calibration set and to audit the final selected response.  They are never
@@ -29,10 +30,15 @@ from typing import Iterable, Mapping, Sequence
 
 import numpy as np
 
+if __package__:
+    from .recent_half import RecentHalfMean
+else:
+    from recent_half import RecentHalfMean
+
 
 PROFILE_SCHEMA = "adaptive_coding_dmrl_profile"
 PROFILE_VERSION = 2
-SMOOTHING_MODES = ("current", "mean", "recent_half")
+SMOOTHING_MODES = ("current", "mean", "recent_half", "theory_recent_half")
 
 
 @dataclass(frozen=True)
@@ -201,10 +207,9 @@ class CodingDecision:
 
 
 class AdaptiveCoding:
-    """Sequential non-parametric top-four DMRL policy for one problem.
+    """Sequential non-parametric excess-based policy for one problem.
 
-    The order-statistic statistic uses the four largest observed calibrated
-    probabilities and the fifth largest as a local cutoff.  ``multiplier``,
+    ``width`` utilities contribute excess above the next-largest cutoff. ``multiplier``,
     ``smoothing`` and ``cost_adjustment`` may be selected offline, but they are
     fixed before any evaluation problem is opened.
     """
@@ -219,6 +224,7 @@ class AdaptiveCoding:
         smoothing: str = "mean",
         cost_adjustment: float = 2.0,
         minimum: int | None = None,
+        statistic_start: int | None = None,
     ) -> None:
         if not isinstance(profile, CodingProfile):
             raise TypeError("profile must be a CodingProfile")
@@ -232,12 +238,18 @@ class AdaptiveCoding:
             raise ValueError(f"smoothing must be one of {SMOOTHING_MODES}")
         if not math.isfinite(cost_adjustment) or cost_adjustment < 0.0:
             raise ValueError("cost_adjustment must be finite and nonnegative")
+        if statistic_start is None:
+            statistic_start = max(4, width+1) if smoothing == "theory_recent_half" else width+1
+        if isinstance(statistic_start, bool) or not isinstance(statistic_start, int) or statistic_start < width+1:
+            raise ValueError("statistic_start must be an integer at least width + 1")
         if minimum is None:
-            minimum = width + 1
+            minimum = statistic_start
         if isinstance(minimum, bool) or not isinstance(minimum, int):
             raise ValueError("minimum must be an integer")
         if minimum < width + 1:
             raise ValueError("minimum must be at least width + 1")
+        if minimum < statistic_start:
+            raise ValueError("minimum must be at least statistic_start")
         if isinstance(cap, bool) or not isinstance(cap, int) or cap < minimum:
             raise ValueError("cap must be an integer at least minimum")
 
@@ -249,8 +261,10 @@ class AdaptiveCoding:
         self.smoothing = smoothing
         self.cost_adjustment = float(cost_adjustment)
         self.minimum = minimum
+        self.statistic_start = statistic_start
         self._sorted_probabilities: list[float] = []
         self._residual_history: list[float] = []
+        self._recent_half = RecentHalfMean()
         self._best_probability = -math.inf
         self._best_reward = -math.inf
         self._best_index = -1
@@ -258,6 +272,20 @@ class AdaptiveCoding:
         self._length_square_sum = 0.0
         self._stop_latched = False
         self.decision: CodingDecision | None = None
+
+    @classmethod
+    def from_paper_settings(cls, profile, price, *, multiplier, cost_adjustment,
+                            minimum, cap):
+        """Adopted top-three/full-history rule with explicit frozen settings.
+
+        Counts 4,...,n contribute to the mean, including zero-cutoff estimates.
+        Early gain-cost crossings remain latched until minimum. These settings
+        are inherited from the historical calibrated policy; no new fitting
+        or parameter selection takes place in this constructor.
+        """
+        return cls(profile, price, cap=cap, width=2, multiplier=multiplier,
+                   smoothing="mean", cost_adjustment=cost_adjustment,
+                   minimum=minimum, statistic_start=4)
 
     def _smoothed_residual(self) -> float:
         if self.smoothing == "current":
@@ -300,12 +328,16 @@ class AdaptiveCoding:
         self._length_square_sum += numeric_length * numeric_length
 
         residual = smoothed = gain = next_cost = None
-        if n >= self.width + 1:
+        start = self.statistic_start
+        if n >= start:
             cutoff = self._sorted_probabilities[-self.width - 1]
             upper = self._sorted_probabilities[-self.width :]
             residual = float(np.mean([value - cutoff for value in upper]))
             self._residual_history.append(residual)
-            smoothed = self._smoothed_residual()
+            if self.smoothing == "theory_recent_half":
+                smoothed = self._recent_half.update(n, residual, eligible=cutoff > 0)
+            else:
+                smoothed = self._smoothed_residual()
             gain = self.multiplier * smoothed / n
 
             mean_length = self._length_sum / n
@@ -573,6 +605,7 @@ def _audit_command(args: argparse.Namespace) -> None:
                 smoothing=args.smoothing,
                 cost_adjustment=args.cost_adjustment,
                 minimum=args.minimum,
+                statistic_start=args.statistic_start,
             )
             row = {
                 "problem_id": problem_id,
@@ -612,6 +645,7 @@ def _audit_command(args: argparse.Namespace) -> None:
             "smoothing": args.smoothing,
             "cost_adjustment": args.cost_adjustment,
             "minimum": args.minimum,
+            "statistic_start": args.statistic_start,
             "cap": args.cap,
         },
         "summary": summaries,
@@ -653,6 +687,7 @@ def main() -> None:
     audit.add_argument("--width", type=int, default=4)
     audit.add_argument("--multiplier", type=float, default=1.0)
     audit.add_argument("--smoothing", choices=SMOOTHING_MODES, default="mean")
+    audit.add_argument("--statistic-start", type=int, default=None)
     audit.add_argument("--cost-adjustment", type=float, default=2.0)
     audit.add_argument("--minimum", type=int, default=5)
     audit.set_defaults(function=_audit_command)

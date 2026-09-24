@@ -1,0 +1,21 @@
+{
+  "bootstrap_replicates": 1000,
+  "bootstrap_scope": "conditional on fitted maps, recorded responses, and frozen settings; not selection-adjusted",
+  "bootstrap_seed": 20260924,
+  "bootstrap_unit": "problem identity shared across overlapping splits",
+  "data_sha256": "5d4756a4e19ee3c4bf006a4bf9d7c02b7d472376bf8c8ac7c8f1a1b9dae8ae79",
+  "method": "matched_top3_full_history",
+  "minimum_range": [
+    61,
+    256
+  ],
+  "online_latch": true,
+  "online_positive_cutoff_guard": false,
+  "online_smoothing": "mean",
+  "online_statistic_start": 4,
+  "online_width": 2,
+  "price_units": "dollars per output token",
+  "selection_scope": "Freeze the selected top-three/full-history result and its table intervals.\n\nNo re-tuning or test-based parameter optimization. This selection followed\nexploratory evaluation; it is not an independent confirmation of superiority.\n",
+  "source": "/Users/yhkalayci/hkn/pandora_bon/adaptive-BoN/codex_results/code/coding_top3_full_history_20260924",
+  "source_manifest_sha256": "1d47dc8332d1597b8fc87362ef3ff4d0428575103075421a16b6937c2dcf8f31"
+}

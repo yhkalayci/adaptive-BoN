@@ -1,0 +1,902 @@
+[
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 0.5,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 384,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 256,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 0
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 0.25,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 384,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 0
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 0.25,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 0
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 0.25,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 140,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 120,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 0
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 124,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 108,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 0
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 1
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 1
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 16.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 1
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 153,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 1
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 130,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 108,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 1
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 2
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 148,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 92,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 2
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 126,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 94,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 2
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 110,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 96,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 2
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 98,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 86,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 2
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 0.125,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 384,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 256,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 3
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 256,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 128,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 3
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 119,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 89,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 3
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 106,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 80,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 3
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 1.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 96,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 84,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 3
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 137,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 120,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 4
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 121,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 121,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 4
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 107,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 107,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 4
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 97,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 61,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 4
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 0.5,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 88,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 77,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 4
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 221,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 166,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 5
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 194,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 121,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 5
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 174,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 109,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 5
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 138,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 118,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 5
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 144,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 108,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 5
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 178,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 156,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 6
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 141,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 141,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 6
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 113,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 113,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 6
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 2.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 92,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 80,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 6
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 77,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 77,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 6
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 212,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 212,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 7
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 165,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 165,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 7
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 135,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 135,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 7
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 112,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 112,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 7
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 93,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 93,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 7
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 16.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 163,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 122,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 8
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 136,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 119,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 8
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 119,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 104,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 8
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 8.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 106,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 80,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 8
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 97,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 85,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 8
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 1.0,
+      "budget": 0.0,
+      "cap": 148,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 111,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 9
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.25e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 4.0,
+      "budget": 0.0,
+      "cap": 132,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 116,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 9
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.5e-06,
+    "rule": {
+      "alpha": 0.0625,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 119,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 119,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 9
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 1.7499999999999998e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 0.0,
+      "budget": 0.0,
+      "cap": 108,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 81,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 9
+  },
+  {
+    "calibration": null,
+    "method": "matched_top3_full_history",
+    "price": 2e-06,
+    "rule": {
+      "alpha": 4.0,
+      "beta": 2.0,
+      "budget": 0.0,
+      "cap": 99,
+      "guard": false,
+      "kind": "excess",
+      "latch": true,
+      "minimum": 87,
+      "smoothing": "mean",
+      "width": 2
+    },
+    "split": 9
+  }
+]

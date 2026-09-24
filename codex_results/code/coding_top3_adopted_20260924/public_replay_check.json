@@ -1,0 +1,13 @@
+{
+  "cases": 300,
+  "checks": [
+    "stopping count",
+    "highest-raw-reward index",
+    "all paid output tokens"
+  ],
+  "data_sha256": "5d4756a4e19ee3c4bf006a4bf9d7c02b7d472376bf8c8ac7c8f1a1b9dae8ae79",
+  "implementation_sha256": "c2de11af89a5a82bd988af570a90fe7a1b4f97dcb68763d4d0e286e113f65568",
+  "sampling": "first two sorted test identities, first three saved orderings, all prices",
+  "settings": 50,
+  "split_count": 10
+}

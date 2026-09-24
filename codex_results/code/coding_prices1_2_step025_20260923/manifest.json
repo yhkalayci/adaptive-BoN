@@ -1,0 +1,81 @@
+{
+  "adaptive_tuning_objective": "selected_isotonic_probability - tuning_cost_scale * cumulative_output_tokens / utility_divisor",
+  "candidate_count_per_divisor": 3696,
+  "candidate_grid": {
+    "cap_factors": [
+      0.5,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "cost_adjustments": [
+      0.0,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "minimum_factors": [
+      0.0,
+      0.25,
+      0.5,
+      0.625,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "multipliers": [
+      0.0625,
+      0.125,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0
+    ],
+    "smoothing": [
+      "current",
+      "mean",
+      "recent_half"
+    ]
+  },
+  "completed_at_utc": "2026-09-24T05:01:27.630810+00:00",
+  "created_at_utc": "2026-09-24T04:59:57.810649+00:00",
+  "data_path": "/Users/yhkalayci/hkn/pandora_bon/adaptive-BoN/server_runs/coding_input_20260923/coding_correctness_rewards.jsonl",
+  "data_sha256": "5d4756a4e19ee3c4bf006a4bf9d7c02b7d472376bf8c8ac7c8f1a1b9dae8ae79",
+  "divisors": [
+    1000000.0,
+    799999.9999999999,
+    666666.6666666666,
+    571428.5714285715,
+    500000.0
+  ],
+  "elapsed_seconds": 93.4255275829928,
+  "fixed_n_tuning_objective": "exact_random_order_correctness - expected_output_tokens / utility_divisor",
+  "length_field": "output_tokens",
+  "online_distribution_fit": false,
+  "outer_seed": 20260923,
+  "policy_family": "nonparametric_dmrl_top4_above_fifth",
+  "prices_per_output_token": [
+    1e-06,
+    1.25e-06,
+    1.5e-06,
+    1.7499999999999998e-06,
+    2e-06
+  ],
+  "problems": 137,
+  "profit": "selected_correct - cumulative_output_tokens / utility_divisor",
+  "response_selection": "maximum raw CodeScaler reward; calibrated probability is used for DMRL utility and stopping",
+  "samples": 70144,
+  "schema": "coding_nonparametric_dmrl_profit_study",
+  "splits": 10,
+  "test_label_online_access": false,
+  "test_permutations": 48,
+  "train_permutations": 24,
+  "tuning_cost_scale": 1.0,
+  "version": 1,
+  "width": 4
+}

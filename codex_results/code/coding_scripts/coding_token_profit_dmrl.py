@@ -895,7 +895,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--divisors", type=parse_divisors, default=DEFAULT_DIVISORS)
+    economic = parser.add_mutually_exclusive_group()
+    economic.add_argument("--prices", type=parse_divisors,
+                          help="comma-separated positive prices in dollars per output token")
+    economic.add_argument("--divisors", type=parse_divisors, default=DEFAULT_DIVISORS,
+                          help="legacy reciprocal-price input; prefer --prices")
     parser.add_argument("--splits", type=int, default=10)
     parser.add_argument("--outer-seed", type=int, default=20260923)
     parser.add_argument("--train-permutations", type=int, default=24)
@@ -912,6 +916,8 @@ def main() -> None:
         help="scale output-token cost only when selecting a policy offline",
     )
     args = parser.parse_args()
+    if args.prices is not None:
+        args.divisors = tuple(1.0 / price for price in args.prices)
     if args.splits < 1 or args.train_permutations < 1 or args.test_permutations < 1:
         parser.error("splits and permutation counts must be positive")
     if args.width < 1 or args.width >= args.expected_samples:
@@ -943,6 +949,7 @@ def main() -> None:
         "tuning_cost_scale": args.tuning_cost_scale,
         "fixed_n_tuning_objective": "exact_random_order_correctness - expected_output_tokens / utility_divisor",
         "divisors": args.divisors,
+        "prices_per_output_token": [1.0 / value for value in args.divisors],
         "splits": args.splits,
         "outer_seed": args.outer_seed,
         "train_permutations": args.train_permutations,
