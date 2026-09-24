@@ -1,0 +1,47 @@
+{
+  "source_study": "/scratch1/kalayci/adaptive-BoN-dmrl/codex_results/distribution_free_dmrl/token_alignment_0p1_to_20_20260924",
+  "source_cache_sha256": {
+    "gemma3_4b__fsfairx_llama3_rm.npz": "1a98ac9b89ebf10cac1422affa5fb42522dd6d17334a7d47b46cbf480e812d15",
+    "gemma3_4b__rm_mistral_7b.npz": "bf69387719324995632d10f7762d4f2e804f06df9ed113bae88fea745351c505",
+    "granite42_8b__fsfairx_llama3_rm.npz": "082ace4a5c4a40d2bf91ab3d3a4cdce88c7f5eb6c70a0c136c083fb46cb183b5",
+    "granite42_8b__rm_mistral_7b.npz": "ea8f03d8eeb626cf04977a5fe3b39b9fd093e950fba5b86913705eea099034a0",
+    "ministral3_8b__fsfairx_llama3_rm.npz": "4ce370a0c0718d8451e0f409a6f6fd4f3b78c4ffc8a1729705725724e75709e7",
+    "ministral3_8b__rm_mistral_7b.npz": "0b6baf065dbb2ead9972bb535316cdf1599cbc1a1d6b45195b3013a67dae2e4d",
+    "qwen35_9b__fsfairx_llama3_rm.npz": "de6dd74c05bcf0747a324a9ca664a8aeb76bb9992d7b66f941f5f0b3c8fa886b",
+    "qwen35_9b__rm_mistral_7b.npz": "80b4afcc38ccda77625cdd4a9cb5cf145ced6a98ebcb3c534da41aef8988add6"
+  },
+  "generator_models": [
+    "gemma3_4b",
+    "granite42_8b",
+    "ministral3_8b",
+    "qwen35_9b"
+  ],
+  "reward_models": [
+    "fsfairx_llama3_rm",
+    "rm_mistral_7b"
+  ],
+  "table_generator": "qwen35_9b",
+  "prices_per_million_output_tokens": [
+    0.1,
+    0.2,
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0
+  ],
+  "policy": "AdaptiveAlignment mean_costse2; min=4, q=.99, cost_adjustment=2",
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "bootstrap_seed": 20260925,
+  "bootstrap_repetitions": 1000,
+  "fixed_baseline": "one N selected to maximize training mean net utility per model/reward/split/price, then frozen on test",
+  "metric": "net utility = quality minus recorded output-token cost",
+  "interval": "pointwise paired prompt bootstrap conditional on training-selected N",
+  "script_sha256": "23059e5c76d49de3dc1ff4378c315f07dc6cf5bda9f3ff96e2ec1602af11da23"
+}

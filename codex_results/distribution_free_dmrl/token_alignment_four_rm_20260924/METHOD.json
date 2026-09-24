@@ -1,0 +1,112 @@
+{
+  "input_root": "/scratch1/kalayci/alignment_generation_farm/reward_run/data/rewarded_records",
+  "reward_config_signature": "adab7c128d964aa8b10ae7bb9b80685feb5f4fad045358dfa9e6308dbcebfc7f",
+  "generator_models": [
+    "gemma3_4b",
+    "granite42_8b",
+    "ministral3_8b",
+    "qwen35_9b"
+  ],
+  "reward_models": [
+    "armorm_llama3_8b",
+    "fsfairx_llama3_rm",
+    "rm_mistral_7b",
+    "skywork_llama31_8b"
+  ],
+  "prompts_per_generator": 100,
+  "responses_per_prompt": 960,
+  "output_token_field": "generations[].output_tokens",
+  "prices_per_million_output_tokens": [
+    0.02,
+    0.1,
+    0.2,
+    1.0,
+    2.0,
+    10.0
+  ],
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "replay_seed": 20260923,
+  "permutations": 8,
+  "bootstrap_seed": 20260924,
+  "bootstrap_repetitions": 1000,
+  "policy": "AdaptiveAlignment mean_costse2; min=4, q=.99, cost_adjustment=2",
+  "utility": "sigmoid(selected raw reward - prompt full-pool empirical q99)",
+  "cost": "recorded output tokens * price; reward scoring cost excluded",
+  "price_interpretation": "illustrative regimes, not generator-specific billed rates",
+  "table_selection": "generator and fixed N trained within each split/price; held-out evaluation",
+  "figure_baseline": "each generator compared with own train-selected fixed N",
+  "intervals": "pointwise paired prompt-bootstrap of profit differences divided by observed positive fixed-N profit; shared weights across splits and generators; conditional on training selections",
+  "cache_manifest": {
+    "gemma3_4b__armorm_llama3_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "2729a0c74c6f40a0e40447fe6b5ad8179c0eaf60ba9867c63d8b7c1cc49bd208"
+    },
+    "gemma3_4b__fsfairx_llama3_rm.npz": {
+      "origin": "validated prior replay",
+      "sha256": "0f23e9f6b5a25c16e674395ca2d42d2fb4f46fb8ad529c16fa452552a11748e4"
+    },
+    "gemma3_4b__rm_mistral_7b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "659681ee9d5dbc2e1fb2c931d3991c3f77a41695a01483bc69cbfc6c5519324f"
+    },
+    "gemma3_4b__skywork_llama31_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "2a94a510e520e254ff1fc46bab853800fc05184138d5e548313e8fd2f25fb85b"
+    },
+    "granite42_8b__armorm_llama3_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "d1136ba3f3577efe54cca85a595e1f638a329dd650202832734e7e15c6bfceee"
+    },
+    "granite42_8b__fsfairx_llama3_rm.npz": {
+      "origin": "validated prior replay",
+      "sha256": "1e9b06a63d37411433b963cfc830439aa91611737d41c891b20a3204b68665ec"
+    },
+    "granite42_8b__rm_mistral_7b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "0e6bd7a675e829055858fcadada5b875a24851fe724c9086c15b335ba7b9a14c"
+    },
+    "granite42_8b__skywork_llama31_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "ba828e100572f88ee95b0d7d71f33d9c6aacd681e0e20c3359fdc8aded9917dd"
+    },
+    "ministral3_8b__armorm_llama3_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "d1510c3d63ff889d356845c2e34141863ad1cda3b93ee235a4d4fcac5cfc6550"
+    },
+    "ministral3_8b__fsfairx_llama3_rm.npz": {
+      "origin": "validated prior replay",
+      "sha256": "32139eb375aa3eb96f0b96a5c77f959cc28d9d44d0651b5c207a1215dce29bfc"
+    },
+    "ministral3_8b__rm_mistral_7b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "8c8bd73f22621f021e16747b16872da9a46cc4d6a7d7d37bf31c7ac99bbad8d6"
+    },
+    "ministral3_8b__skywork_llama31_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "6bc06ecbbc86d2b477d8ebf2fbca98a86f3d3710cbae9c774ca5c74f207a6b16"
+    },
+    "qwen35_9b__armorm_llama3_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "5e9252b848cc09723c2142a2d4378a3bd6ddfa3445010c82a1b87169edf25e13"
+    },
+    "qwen35_9b__fsfairx_llama3_rm.npz": {
+      "origin": "validated prior replay",
+      "sha256": "790d7e9f01f380359cd6b1ed8c2b1f24892018a1237afcc83869ac1e8de9729a"
+    },
+    "qwen35_9b__rm_mistral_7b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "b8982af8638d607738b6fe277ff919d0f0c7b599374b5d44b4217389ccde4045"
+    },
+    "qwen35_9b__skywork_llama31_8b.npz": {
+      "origin": "validated prior replay",
+      "sha256": "14be662e7f00afc4eee3c700ebaa471d583c191b65ba47f738995e52ae5befe0"
+    }
+  },
+  "script_sha256": "a54fb3d922f6ed96ec662c7170740de655091e4494ee44879d41f3d9c15650fd"
+}
