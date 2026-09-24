@@ -1,0 +1,115 @@
+{
+  "input_root": "/scratch1/kalayci/alignment_generation_farm/reward_run/data/rewarded_records",
+  "reward_config_signature": "adab7c128d964aa8b10ae7bb9b80685feb5f4fad045358dfa9e6308dbcebfc7f",
+  "generator_models": [
+    "gemma3_4b",
+    "granite42_8b",
+    "ministral3_8b",
+    "qwen35_9b"
+  ],
+  "reward_models": [
+    "armorm_llama3_8b",
+    "fsfairx_llama3_rm",
+    "rm_mistral_7b",
+    "skywork_llama31_8b"
+  ],
+  "prompts_per_generator": 100,
+  "responses_per_prompt": 960,
+  "output_token_field": "generations[].output_tokens",
+  "prices_per_million_output_tokens": [
+    0.1,
+    0.2,
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    20.0
+  ],
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "replay_seed": 20260923,
+  "permutations": 8,
+  "bootstrap_seed": 20260924,
+  "bootstrap_repetitions": 1000,
+  "policy": "AdaptiveAlignment mean_costse2; min=4, q=.99, cost_adjustment=2",
+  "utility": "sigmoid(selected raw reward - prompt full-pool empirical q99)",
+  "cost": "recorded output tokens * price; reward scoring cost excluded",
+  "price_interpretation": "illustrative regimes, not generator-specific billed rates",
+  "table_selection": "generator and fixed N trained within each split/price; held-out evaluation",
+  "figure_baseline": "each generator compared with own train-selected fixed N",
+  "profit_gain": "adaptive profit minus train-selected fixed-N profit, in dollars per prompt",
+  "intervals": "pointwise paired prompt-bootstrap of absolute profit differences; shared weights across splits and generators; conditional on training selections",
+  "cache_manifest": {
+    "gemma3_4b__armorm_llama3_8b.npz": {
+      "origin": "new replay",
+      "sha256": "c7c985601a288fd613e6dc752ffa6ecd9488ce4d4015e0cfc31d86bcbd581f87"
+    },
+    "gemma3_4b__fsfairx_llama3_rm.npz": {
+      "origin": "new replay",
+      "sha256": "1a98ac9b89ebf10cac1422affa5fb42522dd6d17334a7d47b46cbf480e812d15"
+    },
+    "gemma3_4b__rm_mistral_7b.npz": {
+      "origin": "new replay",
+      "sha256": "bf69387719324995632d10f7762d4f2e804f06df9ed113bae88fea745351c505"
+    },
+    "gemma3_4b__skywork_llama31_8b.npz": {
+      "origin": "new replay",
+      "sha256": "e4532454673730d4ce6cda69862fefed8c9d5d5099d8e2247a7b8a832838e252"
+    },
+    "granite42_8b__armorm_llama3_8b.npz": {
+      "origin": "new replay",
+      "sha256": "fe49e9c97faa9ad6187c00ef654962b331788002e67ef1f485305a568ac82bfd"
+    },
+    "granite42_8b__fsfairx_llama3_rm.npz": {
+      "origin": "new replay",
+      "sha256": "082ace4a5c4a40d2bf91ab3d3a4cdce88c7f5eb6c70a0c136c083fb46cb183b5"
+    },
+    "granite42_8b__rm_mistral_7b.npz": {
+      "origin": "new replay",
+      "sha256": "ea8f03d8eeb626cf04977a5fe3b39b9fd093e950fba5b86913705eea099034a0"
+    },
+    "granite42_8b__skywork_llama31_8b.npz": {
+      "origin": "new replay",
+      "sha256": "51de616e83a0d8267d211915d63a0295aa1247c3167f748980b4ca7031b8e273"
+    },
+    "ministral3_8b__armorm_llama3_8b.npz": {
+      "origin": "new replay",
+      "sha256": "756c390e0bf7de8035953de2e2c30fb7f828a3058d0178c72ed60bc0a21f68f0"
+    },
+    "ministral3_8b__fsfairx_llama3_rm.npz": {
+      "origin": "new replay",
+      "sha256": "4ce370a0c0718d8451e0f409a6f6fd4f3b78c4ffc8a1729705725724e75709e7"
+    },
+    "ministral3_8b__rm_mistral_7b.npz": {
+      "origin": "new replay",
+      "sha256": "0b6baf065dbb2ead9972bb535316cdf1599cbc1a1d6b45195b3013a67dae2e4d"
+    },
+    "ministral3_8b__skywork_llama31_8b.npz": {
+      "origin": "new replay",
+      "sha256": "5bf86f2783d41e3e822b6a03dcb957035c6b9047681f880c497f5010394fd788"
+    },
+    "qwen35_9b__armorm_llama3_8b.npz": {
+      "origin": "new replay",
+      "sha256": "a77e07960df02eccf0b094875f3afafa21fdf09dc3c7139e532ee708e9bb971c"
+    },
+    "qwen35_9b__fsfairx_llama3_rm.npz": {
+      "origin": "new replay",
+      "sha256": "de6dd74c05bcf0747a324a9ca664a8aeb76bb9992d7b66f941f5f0b3c8fa886b"
+    },
+    "qwen35_9b__rm_mistral_7b.npz": {
+      "origin": "new replay",
+      "sha256": "80b4afcc38ccda77625cdd4a9cb5cf145ced6a98ebcb3c534da41aef8988add6"
+    },
+    "qwen35_9b__skywork_llama31_8b.npz": {
+      "origin": "new replay",
+      "sha256": "255dc0c95bd1061da241333059a745e37c5185c0221de68ea3252af09bbf4e1f"
+    }
+  },
+  "script_sha256": "9bbc38298ad8ce69df37187b85a563370a55cebac05b8277f1a6b3d794009e42"
+}

@@ -1,0 +1,77 @@
+{
+  "input_root": "/scratch1/kalayci/alignment_generation_farm/reward_run/data/rewarded_records",
+  "current_study": "/scratch1/kalayci/adaptive-BoN-dmrl/codex_results/distribution_free_dmrl/token_alignment_0p1_to_20_20260924",
+  "top2_study": "/scratch1/kalayci/adaptive-BoN-dmrl/codex_results/distribution_free_dmrl/theory_gain_beta2_two_rm_0p1_to_10_20260924",
+  "optimism_audit": "/scratch1/kalayci/adaptive-BoN-dmrl/codex_results/distribution_free_dmrl/decision_optimism_audit_20260924",
+  "source_sha256": {
+    "gemma3_4b__fsfairx_llama3_rm.npz": {
+      "current": "1a98ac9b89ebf10cac1422affa5fb42522dd6d17334a7d47b46cbf480e812d15",
+      "top2": "534d51753dfd6197c28bf5f814f228dbd1e9e8f89d62d05205b9f69f3893b125",
+      "audit": "c62bd0660e90819a9e2078d2a39829614607ea448d4552be6f6af1529de5764d"
+    },
+    "gemma3_4b__rm_mistral_7b.npz": {
+      "current": "bf69387719324995632d10f7762d4f2e804f06df9ed113bae88fea745351c505",
+      "top2": "e0d0c337388ab0a14a8969464d887d8e7b4d0adff1cfcd1edeca38e982d04f90",
+      "audit": "b2fd610a5fec6307171260ccdf35873bd2aa727b3c3e7fd2c1d6870a35b41923"
+    },
+    "granite42_8b__fsfairx_llama3_rm.npz": {
+      "current": "082ace4a5c4a40d2bf91ab3d3a4cdce88c7f5eb6c70a0c136c083fb46cb183b5",
+      "top2": "474f69a6d6cdef59e63e74e3c148173e6ee8cc94bdabcd97c88a8952691d4ce8",
+      "audit": "c17a4594c5c2e5555509e2ce7685058201e83f8201968c92ed68cdeca8bd7b10"
+    },
+    "granite42_8b__rm_mistral_7b.npz": {
+      "current": "ea8f03d8eeb626cf04977a5fe3b39b9fd093e950fba5b86913705eea099034a0",
+      "top2": "3c7ed2be6488aa589bf532cf4b902d6ab37f738e7eedbe8e5fad80fb6330dcf5",
+      "audit": "eb9d1bc7955cc76c2e7240f8ef50e9c448eeb012fc4bad07f45be1132cdce81a"
+    },
+    "ministral3_8b__fsfairx_llama3_rm.npz": {
+      "current": "4ce370a0c0718d8451e0f409a6f6fd4f3b78c4ffc8a1729705725724e75709e7",
+      "top2": "5e281e05b130a6cddde0dc581faaf7a7fb5dc0097768ff3bee5a1adfdcb6ee08",
+      "audit": "cba30d32d6bc80489d83a5fee413748b470f6faa18169a173256cd301055d006"
+    },
+    "ministral3_8b__rm_mistral_7b.npz": {
+      "current": "0b6baf065dbb2ead9972bb535316cdf1599cbc1a1d6b45195b3013a67dae2e4d",
+      "top2": "a62ba561ff518314289871f5c4bf6ea5ac67a14c2998f69583a9d5856e5b5004",
+      "audit": "68be7ccd5854a9c3dd2d891bb64df6c596d58dbffb881cad6b011158b3c09b6f"
+    },
+    "qwen35_9b__fsfairx_llama3_rm.npz": {
+      "current": "de6dd74c05bcf0747a324a9ca664a8aeb76bb9992d7b66f941f5f0b3c8fa886b",
+      "top2": "408989a46805633dd4124409693ff11b3bf25c541cf1ea2dff7f431b01a0b944",
+      "audit": "50316f34a66e012dcdf1076fd9283acbc1590ba3bc6d37aee4b2ff84e1d7b34a"
+    },
+    "qwen35_9b__rm_mistral_7b.npz": {
+      "current": "80b4afcc38ccda77625cdd4a9cb5cf145ced6a98ebcb3c534da41aef8988add6",
+      "top2": "b3eeb856839854525c2b39dbf94262641a185b7cb64c331e76e41def439c0a7b",
+      "audit": "bd26a0e9ff99b463b2fbc93dabd3f9ccb85a707b92acd257883917aac7aa6314"
+    }
+  },
+  "policies": [
+    "four_over_n",
+    "four_over_n_plus_one",
+    "one_over_n",
+    "one_over_n_plus_one",
+    "record_then_smooth"
+  ],
+  "prices_per_million": [
+    0.1,
+    0.2,
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0
+  ],
+  "split_seeds": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "replay_seed": 20260923,
+  "permutations": 8,
+  "cap": 960,
+  "utility_transform": "sigmoid(reward - observed-prefix q99)",
+  "estimated_next_cost": "price*mean output tokens/(1+2*SE/mean)",
+  "script_sha256": "83bb2f3ade015a99a9c1137cab307be776ccda5cad7a2359a459b068974f7d1e"
+}
